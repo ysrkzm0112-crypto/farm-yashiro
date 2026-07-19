@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>購入シュミレーション | FARM YASHIRO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brown: #6b4226;
+    --orange: #e08a3c;
+    --cream: #fdf6ec;
+    --line: #e6d4bd;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background: var(--cream);
+    color: var(--brown);
+    margin: 0;
+    padding: 24px 16px 64px;
+  }
+  .wrap {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 900;
+    margin: 8px 0 4px;
+  }
+  header p {
+    font-size: 13px;
+    color: #9a7a55;
+    margin: 0;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(107,66,38,0.06);
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 900;
+    margin: 0 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 16px 0 6px;
+  }
+  label:first-of-type { margin-top: 0; }
+  .select-wrap {
+    position: relative;
+  }
+  .select-wrap::after {
+    content: '▼';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: var(--orange);
+    pointer-events: none;
+  }
+  select, input[type=number] {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--cream);
+    color: var(--brown);
+    font-size: 15px;
+    font-family: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .hint {
+    font-size: 12px;
+    color: #9a7a55;
+    margin-top: 5px;
+    line-height: 1.5;
+  }
+  .season-note {
+    background: #fff8f0;
+    border-left: 3px solid var(--orange);
+    border-radius: 0 8px 8px 0;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--brown);
+    margin-top: 8px;
+    line-height: 1.6;
+  }
+  .calc-btn {
+    width: 100%;
+    padding: 16px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 14px;
+    background: var(--orange);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 900;
+    font-family: inherit;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: opacity 0.15s;
+  }
+  .calc-btn:active { opacity: 0.85; }
+  #result { display: none; }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 14px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .row:last-of-type { border-bottom: none; }
+  .row.total {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--orange);
+    padding-top: 14px;
+    margin-top: 6px;
+    border-top: 2px solid var(--orange);
+    border-bottom: none;
+  }
+  .row .label { color: #6b6b6b; }
+  .row .val { font-weight: 700; }
+  .note {
+    font-size: 12px;
+    color: #9a7a55;
+    margin-top: 12px;
+    line-height: 1.7;
+  }
+  .price-list {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .price-chip {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: var(--brown);
+    cursor: pointer;
+    transition: border-color 0.12s, background 0.12s;
+    white-space: nowrap;
+  }
+  .price-chip.active {
+    border-color: var(--orange);
+    background: #fff8f0;
+    font-weight: 700;
+  }
+  .error {
+    color: #c0392b;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 12px;
+    display: none;
+  }
+  .cta-card {
+    text-align: center;
+    padding: 24px 20px;
+    display: none;
+  }
+  .cta-card p {
+    font-size: 13px;
+    margin: 0 0 14px;
+    color: #9a7a55;
+    line-height: 1.7;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--brown);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 32px;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+  footer {
+    text-align: center;
+    font-size: 12px;
+    color: #b89a78;
+    margin-top: 24px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>購入シュミレーション</h1>
+    <p>FARM YASHIRO（千葉県・さつまいも農家）</p>
+  </header>
+
+  <div class="card">
+    <p class="card-title">お届け先・品種・規格</p>
+
+    <label for="pref">お届け先の都道府県</label>
+    <div class="select-wrap">
+      <select id="pref"></select>
+    </div>
+
+    <label for="variety">品種</label>
+    <div class="select-wrap">
+      <select id="variety">
+        <option value="べにはるか">べにはるか</option>
+        <option value="シルクスイート">シルクスイート</option>
+      </select>
+    </div>
+    <div class="season-note" id="seasonNote"></div>
+
+    <label for="grade">規格</label>
+    <div class="select-wrap">
+      <select id="grade">
+        <option value="A品">A品</option>
+        <option value="B品">B品</option>
+        <option value="丸品">丸品</option>
+        <option value="訳あり">訳あり</option>
+        <option value="切">切（カット品）</option>
+      </select>
+    </div>
+
+    <div id="sizeWrap">
+      <label for="size">サイズ</label>
+      <div class="select-wrap">
+        <select id="size"></select>
+      </div>
+      <div class="price-list" id="priceList"></div>
+    </div>
+
+    <label for="qty">数量（kg）</label>
+    <input type="number" id="qty" min="1" step="1" value="5">
+    <div class="hint">ご希望のキロ数を入力してください（例：10kgなら「10」）</div>
+
+    <button class="calc-btn" onclick="calc()">金額を確認する</button>
+    <div class="error" id="errorMsg"></div>
+  </div>
+
+  <div class="card" id="result">
+    <p class="card-title">お見積り結果</p>
+    <div class="row"><span class="label">芋代</span><span class="val" id="r-imo">-</span></div>
+    <div class="row"><span class="label">消費税（8%）</span><span class="val" id="r-imoTax">-</span></div>
+    <div class="row"><span class="label">送料</span><span class="val" id="r-ship">-</span></div>
+    <div class="row"><span class="label">消費税（10%）</span><span class="val" id="r-shipTax">-</span></div>
+    <div class="row total"><span>お見積り総額</span><span id="r-total">-</span></div>
+    <div class="note">
+      ※ 表示は税込価格の参考シミュレーションです。実際のご注文は別途ご連絡ください。<br>
+      ※ 芋代は軽減税率8%、送料は標準税率10%が適用されます。
+    </div>
+  </div>
+
+  <div class="card cta-card" id="ctaCard">
+    <p>ご注文・ご質問はInstagramのDMまたはお問い合わせフォームからお気軽にどうぞ。</p>
+    <a class="cta-btn" href="https://lit.link/farmyashiro" target="_blank" rel="noopener">注文・お問い合わせ</a>
+  </div>
+
+  <footer>FARM YASHIRO &mdash; <a href="https://lit.link/farmyashiro" style="color:inherit;" target="_blank" rel="noopener">https://lit.link/farmyashiro</a></footer>
+</div>
+
+<script>
+const priceTable = {
+  "べにはるか": {
+    "A品": {"2L":2100, "L":2800, "M":2800, "S":2100, "2S":1700},
+    "B品": {"2L":1700, "L":2100, "M":2100},
+    "丸品": {"2L":2100, "L":2100, "M":2100, "S":1700},
+    "訳あり": 1000,
+    "切": 1000
+  },
+  "シルクスイート": {
+    "A品": {"2L":2000, "L":2500, "M":2500, "S":2000, "2S":1700},
+    "B品": {"2L":1700, "L":2000, "M":2000},
+    "丸品": {"2L":2000, "L":2000, "M":2000, "S":1700},
+    "訳あり": 1000,
+    "切": 1000
+  }
+};
+
+const weightSteps = [5,10,15,20,25,30,35,40,45,50,55,60,80,100,120,140,160,180,200];
+
+const shippingTable = {
+  "北海道": [1030,1160,1820,1820,2850,2980,3640,3640,4670,4800,5460,5460,7280,9100,10920,12740,14560,16380,18200],
+  "青森":   [1000,1110,1450,1450,2450,2560,2900,2900,3900,4010,4350,4350,5800,7250,8700,10150,11600,13050,14500],
+  "秋田":   [1000,1110,1450,1450,2450,2560,2900,2900,3900,4010,4350,4350,5800,7250,8700,10150,11600,13050,14500],
+  "岩手":   [1000,1110,1450,1450,2450,2560,2900,2900,3900,4010,4350,4350,5800,7250,8700,10150,11600,13050,14500],
+  "山形":   [1000,1100,1440,1440,2440,2540,2880,2880,3880,3980,4320,4320,5760,7200,8640,10080,11520,12960,14400],
+  "宮城":   [1000,1100,1440,1440,2440,2540,2880,2880,3880,3980,4320,4320,5760,7200,8640,10080,11520,12960,14400],
+  "福島":   [1000,1100,1440,1440,2440,2540,2880,2880,3880,3980,4320,4320,5760,7200,8640,10080,11520,12960,14400],
+  "茨城":   [940,980,1320,1320,2260,2300,2640,2640,3580,3620,3960,3960,5280,6600,7920,9240,10560,11880,13200],
+  "栃木":   [940,980,1320,1320,2260,2300,2640,2640,3580,3620,3960,3960,5280,6600,7920,9240,10560,11880,13200],
+  "群馬":   [940,980,1320,1320,2260,2300,2640,2640,3580,3620,3960,3960,5280,6600,7920,9240,10560,11880,13200],
+  "埼玉":   [940,980,1320,1320,2260,2300,2640,2640,3580,3620,3960,3960,5280,6600,7920,9240,10560,11880,13200],
+  "東京":   [940,980,1320,1320,2260,2300,2640,2640,3580,3620,3960,3960,5280,6600,7920,9240,10560,11880,13200],
+  "神奈川": [940,980,1320,1320,2260,2300,2640,2640,3580,3620,3960,3960,5280,6600,7920,9240,10560,11880,13200],
+  "山梨":   [940,980,1320,1320,2260,2300,2640,2640,3580,3620,3960,3960,5280,6600,7920,9240,10560,11880,13200],
+  "千葉":   [940,980,1320,1320,2260,2300,2640,2640,3580,3620,3960,3960,5280,6600,7920,9240,10560,11880,13200],
+  "新潟":   [990,1040,1260,1260,2250,2300,2520,2520,3510,3560,3780,3780,5040,6300,7560,8820,10080,11340,12600],
+  "長野":   [990,1040,1260,1260,2250,2300,2520,2520,3510,3560,3780,3780,5040,6300,7560,8820,10080,11340,12600],
+  "静岡":   [960,1060,1330,1330,2290,2390,2660,2660,3620,3720,3990,3990,5320,6650,7980,9310,10640,11970,13300],
+  "愛知":   [960,1060,1330,1330,2290,2390,2660,2660,3620,3720,3990,3990,5320,6650,7980,9310,10640,11970,13300],
+  "岐阜":   [960,1060,1330,1330,2290,2390,2660,2660,3620,3720,3990,3990,5320,6650,7980,9310,10640,11970,13300],
+  "三重":   [960,1060,1330,1330,2290,2390,2660,2660,3620,3720,3990,3990,5320,6650,7980,9310,10640,11970,13300],
+  "富山":   [980,1070,1370,1370,2350,2440,2740,2740,3720,3810,4110,4110,5480,6850,8220,9590,10960,12330,13700],
+  "石川":   [980,1070,1370,1370,2350,2440,2740,2740,3720,3810,4110,4110,5480,6850,8220,9590,10960,12330,13700],
+  "福井":   [980,1070,1370,1370,2350,2440,2740,2740,3720,3810,4110,4110,5480,6850,8220,9590,10960,12330,13700],
+  "滋賀":   [990,1090,1490,1490,2480,2580,2980,2980,3970,4070,4470,4470,5960,7450,8940,10430,11920,13410,14900],
+  "京都":   [990,1090,1490,1490,2480,2580,2980,2980,3970,4070,4470,4470,5960,7450,8940,10430,11920,13410,14900],
+  "奈良":   [990,1090,1490,1490,2480,2580,2980,2980,3970,4070,4470,4470,5960,7450,8940,10430,11920,13410,14900],
+  "和歌山": [990,1090,1490,1490,2480,2580,2980,2980,3970,4070,4470,4470,5960,7450,8940,10430,11920,13410,14900],
+  "大阪":   [990,1090,1490,1490,2480,2580,2980,2980,3970,4070,4470,4470,5960,7450,8940,10430,11920,13410,14900],
+  "兵庫":   [990,1090,1490,1490,2480,2580,2980,2980,3970,4070,4470,4470,5960,7450,8940,10430,11920,13410,14900],
+  "鳥取":   [1010,1110,1580,1580,2590,2690,3160,3160,4170,4270,4740,4740,6320,7900,9480,11060,12640,14220,15800],
+  "岡山":   [1010,1110,1580,1580,2590,2690,3160,3160,4170,4270,4740,4740,6320,7900,9480,11060,12640,14220,15800],
+  "島根":   [1010,1110,1580,1580,2590,2690,3160,3160,4170,4270,4740,4740,6320,7900,9480,11060,12640,14220,15800],
+  "広島":   [1010,1110,1580,1580,2590,2690,3160,3160,4170,4270,4740,4740,6320,7900,9480,11060,12640,14220,15800],
+  "山口":   [1010,1110,1580,1580,2590,2690,3160,3160,4170,4270,4740,4740,6320,7900,9480,11060,12640,14220,15800],
+  "香川":   [1010,1120,1570,1570,2580,2690,3140,3140,4150,4260,4710,4710,6280,7850,9420,10990,12560,14130,15700],
+  "愛媛":   [1010,1120,1570,1570,2580,2690,3140,3140,4150,4260,4710,4710,6280,7850,9420,10990,12560,14130,15700],
+  "徳島":   [1010,1120,1570,1570,2580,2690,3140,3140,4150,4260,4710,4710,6280,7850,9420,10990,12560,14130,15700],
+  "高知":   [1010,1120,1570,1570,2580,2690,3140,3140,4150,4260,4710,4710,6280,7850,9420,10990,12560,14130,15700],
+  "福岡":   [1020,1140,1770,1770,2790,2910,3540,3540,4560,4680,5310,5310,7080,8850,10620,12390,14160,15930,17700],
+  "佐賀":   [1020,1140,1770,1770,2790,2910,3540,3540,4560,4680,5310,5310,7080,8850,10620,12390,14160,15930,17700],
+  "大分":   [1020,1140,1770,1770,2790,2910,3540,3540,4560,4680,5310,5310,7080,8850,10620,12390,14160,15930,17700],
+  "長崎":   [1020,1140,1770,1770,2790,2910,3540,3540,4560,4680,5310,5310,7080,8850,10620,12390,14160,15930,17700],
+  "熊本":   [1030,1160,1820,1820,2850,2980,3640,3640,4670,4800,5460,5460,7280,9100,10920,12740,14560,16380,18200],
+  "宮崎":   [1030,1160,1820,1820,2850,2980,3640,3640,4670,4800,5460,5460,7280,9100,10920,12740,14560,16380,18200],
+  "鹿児島": [1030,1160,1820,1820,2850,2980,3640,3640,4670,4800,5460,5460,7280,9100,10920,12740,14560,16380,18200],
+  "沖縄":   [1030,1160,1820,1820,2850,2980,3640,3640,4670,4800,5460,5460,7280,9100,10920,12740,14560,16380,18200]
+};
+
+const sizeOptions = {
+  "A品": ["2L","L","M","S","2S"],
+  "B品": ["2L","L","M"],
+  "丸品": ["2L","L","M","S"]
+};
+
+const seasonNotes = {
+  "べにはるか": "販売時期：2月〜5月ごろ",
+  "シルクスイート": "販売時期：新芋は8月〜9月、熟成芋は10月〜1月（完全予約制。8月からInstagramの予約フォームより予約可能）"
+};
+
+// 都道府県リスト生成
+const prefSelect = document.getElementById('pref');
+Object.keys(shippingTable).forEach(p => {
+  const opt = document.createElement('option');
+  opt.value = p; opt.textContent = p;
+  prefSelect.appendChild(opt);
+});
+
+// 品種→販売時期注記
+const varietySelect = document.getElementById('variety');
+const seasonNoteEl = document.getElementById('seasonNote');
+function updateSeasonNote() {
+  seasonNoteEl.textContent = seasonNotes[varietySelect.value];
+}
+varietySelect.addEventListener('change', updateSeasonNote);
+updateSeasonNote();
+
+// 規格→サイズ選択肢
+const gradeSelect = document.getElementById('grade');
+const sizeSelect = document.getElementById('size');
+const sizeWrap = document.getElementById('sizeWrap');
+function updateSizeOptions() {
+  const variety = varietySelect.value;
+  const grade = gradeSelect.value;
+  const priceList = document.getElementById('priceList');
+
+  if (grade === '訳あり' || grade === '切') {
+    sizeWrap.style.display = 'none';
+    priceList.innerHTML = '';
+    return;
+  }
+
+  sizeWrap.style.display = 'block';
+  sizeSelect.innerHTML = '';
+  sizeOptions[grade].forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = s; opt.textContent = s;
+    sizeSelect.appendChild(opt);
+  });
+
+  // サイズ別価格チップを生成
+  priceList.innerHTML = '';
+  sizeOptions[grade].forEach(s => {
+    const price = priceTable[variety][grade][s];
+    const chip = document.createElement('span');
+    chip.className = 'price-chip' + (s === sizeSelect.value ? ' active' : '');
+    chip.textContent = s + ' ¥' + price.toLocaleString('ja-JP') + '/5kg';
+    chip.addEventListener('click', () => {
+      sizeSelect.value = s;
+      priceList.querySelectorAll('.price-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+    });
+    priceList.appendChild(chip);
+  });
+}
+gradeSelect.addEventListener('change', updateSizeOptions);
+varietySelect.addEventListener('change', updateSizeOptions);
+updateSizeOptions();
+
+function yen(n) {
+  return '¥' + Math.round(n).toLocaleString('ja-JP');
+}
+
+function calc() {
+  const errorMsg = document.getElementById('errorMsg');
+  const resultEl = document.getElementById('result');
+  const ctaEl = document.getElementById('ctaCard');
+  errorMsg.style.display = 'none';
+  resultEl.style.display = 'none';
+  ctaEl.style.display = 'none';
+
+  const variety = varietySelect.value;
+  const grade = gradeSelect.value;
+  const kg = parseFloat(document.getElementById('qty').value);
+
+  if (!kg || kg <= 0) {
+    errorMsg.textContent = '数量は1kg以上で入力してください。';
+    errorMsg.style.display = 'block';
+    return;
+  }
+
+  let unitPricePer5kg;
+  if (grade === '訳あり' || grade === '切') {
+    unitPricePer5kg = priceTable[variety][grade];
+  } else {
+    unitPricePer5kg = priceTable[variety][grade][sizeSelect.value];
+  }
+
+  const shipIndex = weightSteps.findIndex(w => kg <= w);
+  if (shipIndex === -1) {
+    errorMsg.textContent = '200kgを超えるご注文は、お手数ですが直接お問い合わせください。';
+    errorMsg.style.display = 'block';
+    return;
+  }
+
+  const shipping = shippingTable[prefSelect.value][shipIndex];
+  const imoTotal = (unitPricePer5kg / 5) * kg;
+  const imoTax = imoTotal * 0.08;
+  const shipTax = shipping * 0.10;
+  const total = imoTotal + imoTax + shipping + shipTax;
+
+  document.getElementById('r-imo').textContent = yen(imoTotal);
+  document.getElementById('r-imoTax').textContent = yen(imoTax);
+  document.getElementById('r-ship').textContent = yen(shipping);
+  document.getElementById('r-shipTax').textContent = yen(shipTax);
+  document.getElementById('r-total').textContent = yen(total);
+
+  resultEl.style.display = 'block';
+  ctaEl.style.display = 'block';
+  resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>

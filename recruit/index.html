@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+  <style>
+
+    @keyframes fyLoader{0%,100%{transform:scale(1) rotate(0deg);}50%{transform:scale(1.18) rotate(12deg);}}
+    a:hover{opacity:.88;}
+    [data-hdr-burger]{display:none;}
+    [data-fy-menu]{opacity:0;visibility:hidden;pointer-events:none;}
+    #fyMenu:checked ~ [data-fy-menu]{opacity:1!important;visibility:visible!important;pointer-events:auto!important;}
+    /* fy-mobile */
+  @media (max-width:768px){
+    [style*="justify-content: space-between"][style*="border-bottom"]{flex-wrap:wrap!important;gap:10px 12px!important;padding:12px 16px!important;padding-top:52px!important;}
+    [style*="justify-content: space-between"][style*="border-bottom"] img[alt="FARM YASHIRO"]{height:24px!important;}
+    [data-hdr-store]{padding:7px 15px!important;font-size:11px!important;}
+    [style*="gap: 26px"][style*="font-size: 14px"]{display:none!important;}
+    [data-hdr-burger]{display:flex!important;}
+    [style*="display: grid"]{grid-template-columns:1fr!important;gap:20px!important;}
+    [style*="grid-column: span 2"]{grid-column:auto!important;flex-direction:column!important;align-items:flex-start!important;}
+    [style*="direction: rtl"]{direction:ltr!important;}
+    [style*=" 56px"]{padding-left:18px!important;padding-right:18px!important;}
+    [style*="padding: 72px 56px"]{padding-top:44px!important;padding-bottom:44px!important;}
+    [style*="padding: 64px 56px"]{padding-top:44px!important;padding-bottom:44px!important;}
+    [style*="padding: 48px 40px 44px"]{padding:28px 22px!important;}
+    [style*="padding: 44px 40px"]{padding:26px 20px!important;}
+    [style*="padding: 42px 36px"]{padding:28px 22px!important;}
+    [style*="height: 560px"]{height:400px!important;}
+    [style*="height: 520px"]{height:380px!important;}
+    [style*="height: 480px"]{height:360px!important;}
+    [style*="left: 56px"][style*="position: absolute"]{left:18px!important;right:18px!important;max-width:none!important;}
+    [style*="(100% - 36px)"]{flex:0 0 86%!important;}
+    [style*="font-size: 60px"]{font-size:29px!important;line-height:1.34!important;}
+    [style*="font-size: 52px"]{font-size:27px!important;}
+    [style*="font-size: 44px"]{font-size:25px!important;}
+    [style*="font-size: 40px"]{font-size:24px!important;line-height:1.4!important;}
+    [style*="font-size: 38px"]{font-size:24px!important;}
+    [style*="font-size: 30px"]{font-size:20px!important;}
+    [style*="font-size: 26px"]{font-size:19px!important;}
+    [style*="font-size: 24px"]{font-size:18px!important;}
+    [style*="font-size: 23px"]{font-size:18px!important;}
+    [style*="font-size: 22px"]{font-size:18px!important;}
+    [style*="font-size: 20px"]{font-size:16px!important;}
+    [style*="font-size: 15px"]{font-size:13px!important;}
+    [style*="font-size: 14px"]{font-size:12.5px!important;}
+    [data-sim]{max-width:100%!important;}
+  }
+</style>
+</helmet>
+<section data-fy-root="" style="background:#F9F9F9;font-family:'Zen Kaku Gothic New',sans-serif;">
+  <div style="max-width:1180px;margin:0 auto;">
+    <div data-fy-card="" style="position:relative;overflow:hidden;background:#F9F9F9;color:#33402F;font-family:'Zen Kaku Gothic New',sans-serif;">
+
+      <div data-fy-bglayer="" style="position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;">
+        <div style="position:absolute;top:620px;right:-120px;width:360px;height:360px;background:rgba(50,40,91,.05);border-radius:62% 38% 55% 45%/55% 45% 60% 40%;"></div>
+        <div style="position:absolute;top:1180px;left:-100px;width:300px;height:300px;background:rgba(247,224,52,.16);border-radius:40% 60% 65% 35%/45% 55% 45% 55%;"></div>
+        <div style="position:absolute;top:1980px;right:-90px;width:280px;height:280px;background:rgba(247,224,52,.14);border-radius:55% 45% 50% 50%/45% 55% 45% 55%;"></div>
+        <div style="position:absolute;top:2720px;left:-110px;width:320px;height:320px;background:rgba(50,40,91,.05);border-radius:48% 52% 60% 40%/40% 60% 40% 60%;"></div>
+      </div>
+
+      <div data-fy-loader="" style="position:absolute;inset:0;z-index:50;background:#F9F9F9;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease;">
+        <div style="width:64px;height:64px;border-radius:0 60% 0 60%;background:#32285B;animation:fyLoader 1.1s ease-in-out infinite;"></div>
+      </div>
+
+      <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid #E7E4F0;">
+        <a href="/" style="display:flex;align-items:center;text-decoration:none;"><img src="../assets/logo.png" alt="FARM YASHIRO" style="height:34px;"></a>
+        <div style="display:flex;gap:26px;font-size:14px;font-weight:700;">
+          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="/#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><a href="/simulation/" style="color:#33402F;text-decoration:none;">見積もりシミュレーション</a><a href="/qa/" style="color:#33402F;text-decoration:none;">Q&amp;A</a><span style="color:#32285B;font-weight:700;">採用情報</span>
+        </div>
+        <input type="checkbox" id="fyMenu" style="display:none;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <a data-hdr-store href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="background:#32285B;color:#fff;padding:10px 22px;border-radius:999px;font-size:13px;font-weight:700;box-shadow:0 4px 0 #E3E0EF;text-decoration:none;">オンラインストア</a>
+          <label for="fyMenu" data-hdr-burger aria-label="メニュー" style="width:40px;height:40px;border-radius:12px;background:#32285B;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px;flex-shrink:0;"><span style="display:block;width:18px;height:2px;background:#fff;border-radius:2px;"></span><span style="display:block;width:18px;height:2px;background:#fff;border-radius:2px;"></span><span style="display:block;width:18px;height:2px;background:#fff;border-radius:2px;"></span></label>
+        </div>
+        <div data-fy-menu style="position:fixed;inset:0;z-index:100050;background:rgba(42,33,72,.97);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:opacity .3s ease;">
+          <label for="fyMenu" aria-label="閉じる" style="position:absolute;top:22px;right:24px;font-size:36px;line-height:1;color:#fff;cursor:pointer;font-family:sans-serif;">×</label>
+          <a href="/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">TOP</a>
+          <a href="/#steps" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">こだわり</a>
+          <a href="/about-farm/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">農園について</a>
+          <a href="/simulation/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">見積もりシミュレーション</a>
+          <a href="/qa/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">Q&amp;A</a>
+          <a href="/recruit/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">採用情報</a>
+          <a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="margin-top:16px;background:#F7E034;color:#32285B;padding:14px 38px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;">オンラインストア</a>
+        </div>
+      </div>
+
+      <div data-fy-reveal="" style="position:relative;width:100%;height:520px;background:#000;overflow:hidden;">
+        <img src="../assets/photos/harvest-dig.jpg" alt="FARM YASHIRO の収穫" style="width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block;">
+        <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.3) 40%,rgba(0,0,0,.05) 70%);"></div>
+        <div style="position:absolute;left:56px;top:50%;transform:translateY(-50%);max-width:600px;z-index:2;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#F7E034;margin-bottom:16px;">RECRUIT / 採用情報</div>
+          <h1 style="font-size:52px;font-weight:900;line-height:1.32;letter-spacing:-.02em;margin:0 0 18px;color:#fff;">一緒に働く<br>仲間を<span style="color:#F7E034;">募集</span>しています！</h1>
+          <p style="font-size:15px;color:rgba(255,255,255,.88);line-height:1.9;font-weight:500;max-width:440px;margin:0;">FARM YASHIRO では、スタッフを募集しています。短期・長期を問わず、一緒に美味しいさつまいもをつくる方をお待ちしています。</p>
+        </div>
+      </div>
+
+      <div data-fy-reveal="" style="position:relative;z-index:1;padding:80px 56px 92px;">
+        <div style="position:relative;max-width:840px;margin:0 auto;min-height:460px;">
+          <img src="../assets/oimo-yellow.png" alt="" style="position:absolute;top:-34px;left:-12px;width:92px;opacity:.5;transform:rotate(-18deg);pointer-events:none;z-index:2;">
+          <div style="position:relative;width:66%;aspect-ratio:4/3;border-radius:40px 40px 40px 12px;overflow:hidden;transform:rotate(-2.5deg);box-shadow:0 32px 62px -34px rgba(50,40,91,.55);">
+            <img src="../assets/photos/tractor-mulch.jpg" alt="植付け" style="width:100%;height:100%;object-fit:cover;object-position:center 85%;display:block;">
+            <span style="position:absolute;left:22px;bottom:18px;color:#fff;font-size:18px;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.55);">植付け</span>
+          </div>
+          <div style="position:absolute;right:0;bottom:-28px;width:45%;aspect-ratio:3/4;border-radius:12px 40px 40px 40px;overflow:hidden;transform:rotate(3.5deg);border:7px solid #F9F9F9;box-shadow:0 26px 50px -30px rgba(50,40,91,.5);">
+            <img src="../assets/photos/harvest-dig.jpg" alt="収穫" style="width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block;">
+            <span style="position:absolute;left:16px;bottom:14px;color:#fff;font-size:16px;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.6);">収穫</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-fy-reveal="" style="position:relative;z-index:1;padding:64px 56px 24px;">
+        <h2 style="font-size:38px;font-weight:900;line-height:1.35;margin:0 0 12px;">募集要項</h2>
+        <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0;max-width:620px;">「さつまいもが好き」「農業に挑戦してみたい」「将来、農家を目指したい」——そんな方を歓迎します。</p>
+      </div>
+
+      <div data-fy-reveal="" style="position:relative;z-index:1;padding:0 56px 24px;">
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+          <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:28px 32px;box-shadow:0 12px 28px -20px rgba(50,40,91,.3);">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;color:#32285B;margin-bottom:8px;">EMPLOYMENT</div>
+            <div style="font-size:17px;font-weight:900;margin-bottom:6px;">雇用形態</div>
+            <p style="font-size:14px;color:#5B6656;line-height:1.85;font-weight:500;margin:0;">アルバイト・パート<br><span style="font-size:12px;color:#7C8A75;">※社員登用あり</span></p>
+          </div>
+          <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:28px 32px;box-shadow:0 12px 28px -20px rgba(50,40,91,.3);">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;color:#32285B;margin-bottom:8px;">WORK</div>
+            <div style="font-size:17px;font-weight:900;margin-bottom:6px;">仕事内容</div>
+            <p style="font-size:14px;color:#5B6656;line-height:1.85;font-weight:500;margin:0;">さつまいもの植付け・収穫・選別・箱詰め など農作業全般</p>
+          </div>
+          <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:28px 32px;box-shadow:0 12px 28px -20px rgba(50,40,91,.3);">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;color:#32285B;margin-bottom:8px;">HOURS</div>
+            <div style="font-size:17px;font-weight:900;margin-bottom:6px;">勤務時間</div>
+            <p style="font-size:14px;color:#5B6656;line-height:1.85;font-weight:500;margin:0;">8:00〜17:00<br><span style="font-size:12px;color:#7C8A75;">※残業基本なし（繁忙期に30分ほどお願いする場合があります）</span></p>
+          </div>
+          <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:28px 32px;box-shadow:0 12px 28px -20px rgba(50,40,91,.3);">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;color:#32285B;margin-bottom:8px;">DAYS</div>
+            <div style="font-size:17px;font-weight:900;margin-bottom:6px;">勤務日数</div>
+            <p style="font-size:14px;color:#5B6656;line-height:1.85;font-weight:500;margin:0;">週休2日制<br>収穫期や繁忙期によって異なります<br><span style="font-size: 12px; color: rgb(124, 138, 117);">※応相談</span></p>
+          </div>
+          <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:28px 32px;box-shadow:0 12px 28px -20px rgba(50,40,91,.3);">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;color:#32285B;margin-bottom:8px;">SALARY</div>
+            <div style="font-size:17px;font-weight:900;margin-bottom:6px;">給与</div>
+            <p style="font-size:14px;color:#5B6656;line-height:1.85;font-weight:500;margin:0;">時給制 1,140円(昇給あり)<br></p>
+          </div>
+          <div style="background:#32285B;border:1px solid #32285B;border-radius:22px;padding:28px 32px;box-shadow:0 12px 28px -20px rgba(50,40,91,.4);">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;color:#F7E034;margin-bottom:8px;">REQUIREMENTS</div>
+            <div style="font-size:17px;font-weight:900;margin-bottom:10px;color:#fff;">応募資格</div>
+            <ul style="margin:0;padding-left:18px;font-size:14px;color:rgba(255,255,255,.9);line-height:1.9;font-weight:500;">
+              <li>普通自動車運転免許 必須（できればMT所持）</li>
+              <li>フォークリフト免許をお持ちの方優遇</li>
+              <li>学歴不問／未経験歓迎</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div data-fy-reveal="" style="position:relative;z-index:1;padding:60px 56px 92px;">
+        <div style="position:relative;max-width:840px;margin:0 auto;min-height:460px;">
+          <img src="../assets/oimo-purple.png" alt="" style="position:absolute;top:-30px;right:-6px;width:84px;opacity:.4;transform:rotate(14deg);pointer-events:none;z-index:2;">
+          <div style="position:relative;margin-left:auto;width:66%;aspect-ratio:4/3;border-radius:40px 40px 12px 40px;overflow:hidden;transform:rotate(2.5deg);box-shadow:0 32px 62px -34px rgba(50,40,91,.55);">
+            <img src="../assets/photos/sorting-hands.jpg" alt="選別" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;">
+            <span style="position:absolute;right:22px;bottom:18px;color:#fff;font-size:18px;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.55);">選別</span>
+          </div>
+          <div style="position:absolute;left:0;bottom:-28px;width:45%;aspect-ratio:3/4;border-radius:40px 12px 40px 40px;overflow:hidden;transform:rotate(-3.5deg);border:7px solid #F9F9F9;box-shadow:0 26px 50px -30px rgba(50,40,91,.5);">
+            <img src="../assets/photos/boxes-web.jpg" alt="箱詰め" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block;">
+            <span style="position:absolute;left:16px;bottom:14px;color:#fff;font-size:16px;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.6);">箱詰め</span>
+          </div>
+        </div>
+      </div>
+
+      <div data-fy-reveal="" style="position:relative;z-index:1;padding:48px 56px 24px;">
+        <div style="background:#F7E034;border-radius:28px;padding:52px 48px;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:16px;">WELCOME</div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
+            <span style="background:#fff;color:#32285B;padding:10px 20px;border-radius:999px;font-size:15px;font-weight:700;">「さつまいもが好き」</span>
+            <span style="background:#fff;color:#32285B;padding:10px 20px;border-radius:999px;font-size:15px;font-weight:700;">「農業に挑戦してみたい」</span>
+            <span style="background:#fff;color:#32285B;padding:10px 20px;border-radius:999px;font-size:15px;font-weight:700;">「将来、農家を目指したい」</span>
+          </div>
+          <p style="font-size:16px;color:#33402F;line-height:1.95;font-weight:700;margin:0;">そんな方も大歓迎!!<br>FARM YASHIRO は、さつまいも品評会で多数の受賞歴があります。私たちと一緒に、さらに美味しいさつまいもづくりを目指しませんか？</p>
+        </div>
+      </div>
+
+      <div data-fy-reveal="" style="position:relative;z-index:1;padding:64px 56px 88px;">
+        <div style="background:#fff;border:1px solid #E7E4F0;border-radius:28px;padding:56px 48px;text-align:center;box-shadow:0 20px 44px -30px rgba(50,40,91,.35);">
+          <h2 style="font-size:30px;font-weight:900;line-height:1.4;margin:0 0 12px;">ご興味のある方へ</h2>
+          <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0 0 24px;">短期・長期を問わず、一緒に働いていただける方を募集しています。<br>お問い合わせよりお気軽にご連絡ください。</p>
+          <div style="background:#FBF7E3;border:1.5px solid #F7E034;border-radius:20px;padding:22px 26px;text-align:left;display:flex;gap:16px;align-items:flex-start;max-width:640px;margin:0 auto 30px;">
+            
+            <div>
+              <p style="font-size:15px;font-weight:900;line-height:1.85;margin:0 0 6px;color:#33402F;">理想とのギャップを感じやすい職業でもございますため、実際に農園にてお仕事体験いただけます。</p>
+              <p style="font-size:12.5px;color:#9A93B8;font-weight:500;margin:0;">※観光としての作業体験ではございません。</p>
+            </div>
+          </div>
+          <a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="display:inline-block;background:#32285B;color:#fff;padding:16px 40px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 6px 0 #E3E0EF;">お問い合わせはこちら →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  apply() {
+    const ld = document.querySelector('[data-fy-loader]');
+    if (ld && !this._loaderDone) {
+      this._loaderDone = true;
+      setTimeout(() => {
+        ld.style.opacity = '0'; ld.style.visibility = 'hidden';
+        setTimeout(() => { ld.style.display = 'none'; }, 650);
+      }, 600);
+    }
+
+  }
+  componentDidMount() { this.apply(); }
+  componentDidUpdate() { this.apply(); }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

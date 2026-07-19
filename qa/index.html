@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+  <style>
+    @keyframes fyLoader{0%,100%{transform:scale(1) rotate(0deg);}50%{transform:scale(1.18) rotate(12deg);}}
+    a:hover{opacity:.88;}
+    [data-hdr-burger]{display:none;}
+    [data-fy-menu]{opacity:0;visibility:hidden;pointer-events:none;}
+    #fyMenu:checked ~ [data-fy-menu]{opacity:1!important;visibility:visible!important;pointer-events:auto!important;}
+    /* fy-mobile */
+  @media (max-width:768px){
+    [style*="justify-content: space-between"][style*="border-bottom"]{flex-wrap:wrap!important;gap:10px 12px!important;padding:12px 16px!important;padding-top:52px!important;}
+    [style*="justify-content: space-between"][style*="border-bottom"] img[alt="FARM YASHIRO"]{height:24px!important;}
+    [data-hdr-store]{padding:7px 15px!important;font-size:11px!important;}
+    [style*="gap: 26px"][style*="font-size: 14px"]{display:none!important;}
+    [data-hdr-burger]{display:flex!important;}
+    [style*="display: grid"]{grid-template-columns:1fr!important;gap:20px!important;}
+    [style*="grid-column: span 2"]{grid-column:auto!important;flex-direction:column!important;align-items:flex-start!important;}
+    [style*="direction: rtl"]{direction:ltr!important;}
+    [style*=" 56px"]{padding-left:18px!important;padding-right:18px!important;}
+    [style*="padding: 72px 56px"]{padding-top:44px!important;padding-bottom:44px!important;}
+    [style*="padding: 64px 56px"]{padding-top:44px!important;padding-bottom:44px!important;}
+    [style*="padding: 48px 40px 44px"]{padding:28px 22px!important;}
+    [style*="padding: 44px 40px"]{padding:26px 20px!important;}
+    [style*="padding: 42px 36px"]{padding:28px 22px!important;}
+    [style*="height: 560px"]{height:400px!important;}
+    [style*="height: 520px"]{height:380px!important;}
+    [style*="height: 480px"]{height:360px!important;}
+    [style*="left: 56px"][style*="position: absolute"]{left:18px!important;right:18px!important;max-width:none!important;}
+    [style*="(100% - 36px)"]{flex:0 0 86%!important;}
+    [style*="font-size: 60px"]{font-size:29px!important;line-height:1.34!important;}
+    [style*="font-size: 52px"]{font-size:27px!important;}
+    [style*="font-size: 44px"]{font-size:25px!important;}
+    [style*="font-size: 40px"]{font-size:24px!important;line-height:1.4!important;}
+    [style*="font-size: 38px"]{font-size:24px!important;}
+    [style*="font-size: 30px"]{font-size:20px!important;}
+    [style*="font-size: 26px"]{font-size:19px!important;}
+    [style*="font-size: 24px"]{font-size:18px!important;}
+    [style*="font-size: 23px"]{font-size:18px!important;}
+    [style*="font-size: 22px"]{font-size:18px!important;}
+    [style*="font-size: 20px"]{font-size:16px!important;}
+    [style*="font-size: 15px"]{font-size:13px!important;}
+    [style*="font-size: 14px"]{font-size:12.5px!important;}
+    [data-sim]{max-width:100%!important;}
+  }
+</style>
+</helmet>
+<section data-fy-root="" style="background:#F9F9F9;font-family:'Zen Kaku Gothic New',sans-serif;">
+  <div style="max-width:1180px;margin:0 auto;">
+    <div data-fy-card="" style="position:relative;overflow:hidden;background:#F9F9F9;color:#33402F;font-family:'Zen Kaku Gothic New',sans-serif;">
+
+      <div style="position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;">
+        <img src="../assets/oimo-purple.png" alt="" style="position:absolute;top:840px;left:-130px;width:560px;opacity:.055;transform:rotate(-8deg);">
+        <img src="../assets/oimo-purple.png" alt="" style="position:absolute;top:1900px;right:-150px;width:600px;opacity:.055;transform:rotate(6deg);">
+        <div style="position:absolute;top:540px;right:-120px;width:360px;height:360px;background:rgba(50,40,91,.05);border-radius:62% 38% 55% 45%/55% 45% 60% 40%;"></div>
+        <div style="position:absolute;top:1200px;left:-100px;width:300px;height:300px;background:rgba(247,224,52,.16);border-radius:40% 60% 65% 35%/45% 55% 45% 55%;"></div>
+        <div style="position:absolute;top:2000px;right:-90px;width:280px;height:280px;background:rgba(247,224,52,.14);border-radius:55% 45% 50% 50%/45% 55% 45% 55%;"></div>
+      </div>
+
+      <div data-fy-loader="" style="position:absolute;inset:0;z-index:50;background:#F9F9F9;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease;">
+        <div style="width:64px;height:64px;border-radius:0 60% 0 60%;background:#32285B;animation:fyLoader 1.1s ease-in-out infinite;"></div>
+      </div>
+
+      <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid #E7E4F0;">
+        <a href="/" style="display:flex;align-items:center;text-decoration:none;"><img src="../assets/logo.png" alt="FARM YASHIRO" style="height:34px;"></a>
+        <div style="display:flex;gap:26px;font-size:14px;font-weight:700;">
+          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="/#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><a href="/simulation/" style="color:#33402F;text-decoration:none;">見積もりシミュレーション</a><span style="color:#32285B;font-weight:700;">Q&amp;A</span><a href="/recruit/" style="color:#33402F;text-decoration:none;">採用情報</a>
+        </div>
+        <input type="checkbox" id="fyMenu" style="display:none;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <a data-hdr-store href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="background:#32285B;color:#fff;padding:10px 22px;border-radius:999px;font-size:13px;font-weight:700;box-shadow:0 4px 0 #E3E0EF;text-decoration:none;">オンラインストア</a>
+          <label for="fyMenu" data-hdr-burger aria-label="メニュー" style="width:40px;height:40px;border-radius:12px;background:#32285B;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px;flex-shrink:0;"><span style="display:block;width:18px;height:2px;background:#fff;border-radius:2px;"></span><span style="display:block;width:18px;height:2px;background:#fff;border-radius:2px;"></span><span style="display:block;width:18px;height:2px;background:#fff;border-radius:2px;"></span></label>
+        </div>
+        <div data-fy-menu style="position:fixed;inset:0;z-index:100050;background:rgba(42,33,72,.97);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:opacity .3s ease;">
+          <label for="fyMenu" aria-label="閉じる" style="position:absolute;top:22px;right:24px;font-size:36px;line-height:1;color:#fff;cursor:pointer;font-family:sans-serif;">×</label>
+          <a href="/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">TOP</a>
+          <a href="/#steps" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">こだわり</a>
+          <a href="/about-farm/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">農園について</a>
+          <a href="/simulation/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">見積もりシミュレーション</a>
+          <a href="/qa/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">Q&amp;A</a>
+          <a href="/recruit/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">採用情報</a>
+          <a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="margin-top:16px;background:#F7E034;color:#32285B;padding:14px 38px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;">オンラインストア</a>
+        </div>
+      </div>
+
+      <div style="position:relative;z-index:1;text-align:center;padding:72px 56px 40px;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#32285B;margin-bottom:16px;">Q&amp;A</div>
+        <h1 style="font-size:40px;font-weight:900;line-height:1.4;margin:0 0 14px;">よくあるご質問</h1>
+        <p style="font-size:15px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0;">ご購入・品種・お届けについて、よくいただくご質問をまとめました。</p>
+      </div>
+
+      <div data-faq="" style="position:relative;z-index:1;max-width:820px;margin:0 auto;padding:0 56px 88px;display:flex;flex-direction:column;gap:14px;">
+
+        <div data-faq-item="" style="background:#fff;border:1px solid #E7E4F0;border-radius:18px;overflow:hidden;box-shadow:0 12px 28px -22px rgba(50,40,91,.3);">
+          <div data-faq-q="" style="display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F7E034;flex-shrink:0;">Q</span>
+            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">どこで購入できますか？</span>
+            <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
+          </div>
+          <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">オンラインストアほか、メール・SNSからのご連絡で、お振込による農家直送の直接取引も承っております。また、農園での直販も行っております。アクセスは「農園について」をご覧ください。</p>
+          </div>
+        </div>
+
+        <div data-faq-item="" style="background:#fff;border:1px solid #E7E4F0;border-radius:18px;overflow:hidden;box-shadow:0 12px 28px -22px rgba(50,40,91,.3);">
+          <div data-faq-q="" style="display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F7E034;flex-shrink:0;">Q</span>
+            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">どんな品種を扱っていますか？</span>
+            <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
+          </div>
+          <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">主に「べにはるか」と「シルクスイート」の2品種を栽培しています。べにはるかは蜜の糖度が最高80度に達する、ねっとり濃厚な味わい。シルクスイートは羊羹のようになめらかで上品な口当たりが特長です。</p>
+          </div>
+        </div>
+
+        <div data-faq-item="" style="background:#fff;border:1px solid #E7E4F0;border-radius:18px;overflow:hidden;box-shadow:0 12px 28px -22px rgba(50,40,91,.3);">
+          <div data-faq-q="" style="display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F7E034;flex-shrink:0;">Q</span>
+            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">販売時期はいつですか？</span>
+            <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
+          </div>
+          <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">べにはるかは2月〜5月ごろ、シルクスイートは新芋が8月〜9月、貯蔵熟成したものが10月〜1月ごろの販売となります。時期やタイミングによっては在庫がない場合がございます。</p>
+          </div>
+        </div>
+
+        <div data-faq-item="" style="background:#fff;border:1px solid #E7E4F0;border-radius:18px;overflow:hidden;box-shadow:0 12px 28px -22px rgba(50,40,91,.3);">
+          <div data-faq-q="" style="display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F7E034;flex-shrink:0;">Q</span>
+            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">送料はどのくらいかかりますか？</span>
+            <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
+          </div>
+          <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">お届け先の地域と数量によって異なります。「見積もりシミュレーション」ページで、品種・規格・数量・お届け先を選ぶと、芋代と送料を含めた参考総額をその場でご確認いただけます。</p>
+          </div>
+        </div>
+
+        <div data-faq-item="" style="background:#fff;border:1px solid #E7E4F0;border-radius:18px;overflow:hidden;box-shadow:0 12px 28px -22px rgba(50,40,91,.3);">
+          <div data-faq-q="" style="display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F7E034;flex-shrink:0;">Q</span>
+            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">切品とはなんですか？</span>
+            <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
+          </div>
+          <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">切り品とは、収穫中など作業中に端が折れてしまった芋や、傷がある箇所を切り落とした品です。味自体に大き違いはありませんが、A品などと比べて痛みが早く出やすいため、お早めにお召し上がりください。</p>
+          </div>
+        </div>
+
+        <div data-faq-item="" style="background:#fff;border:1px solid #E7E4F0;border-radius:18px;overflow:hidden;box-shadow:0 12px 28px -22px rgba(50,40,91,.3);">
+          <div data-faq-q="" style="display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F7E034;flex-shrink:0;">Q</span>
+            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">新芋と貯蔵熟成芋の違いはなんですか？</span>
+            <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
+          </div>
+          <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">新芋は掘り立てのさつまいもです。貯蔵熟成芋は収穫後、専用貯蔵庫で熟成させデンプンを糖化させたさつまいもです。</p>
+          </div>
+        </div>
+
+        <div data-faq-item="" style="background:#fff;border:1px solid #E7E4F0;border-radius:18px;overflow:hidden;box-shadow:0 12px 28px -22px rgba(50,40,91,.3);">
+          <div data-faq-q="" style="display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F7E034;flex-shrink:0;">Q</span>
+            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">自分で熟成したいのですが、熟成方法を教えてください。</span>
+            <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
+          </div>
+          <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">自家熟成は推奨しておりません。自家熟成による痛みなどのクレームや問い合わせは一切受け付けておりません。</p>
+          </div>
+        </div>
+
+        <div data-faq-item="" style="background:#fff;border:1px solid #E7E4F0;border-radius:18px;overflow:hidden;box-shadow:0 12px 28px -22px rgba(50,40,91,.3);">
+          <div data-faq-q="" style="display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F7E034;flex-shrink:0;">Q</span>
+            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">保管方法を教えてください。</span>
+            <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
+          </div>
+          <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">通気性のいい冷暗所に保管してください。20℃前後を超えると芽が出やすくなります。また、10℃前後以下では痛みが始まります。</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="position:relative;z-index:1;background:#fff;border-top:1px solid #ECE9F3;padding:56px 56px 64px;text-align:center;">
+        <p style="font-size:18px;font-weight:900;line-height:1.6;margin:0 0 8px;">解決しないご質問はございますか？</p>
+        <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0 0 26px;">その他のご質問・ご相談は、お問い合わせフォームよりお気軽にご連絡ください。</p>
+        <a href="https://forms.gle/EjTF8Bzc1LbZgEicA" target="_blank" rel="noopener" style="display:inline-block;background:#32285B;color:#fff;padding:16px 40px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 6px 0 #E3E0EF;">お問い合わせはこちら →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const ld = document.querySelector('[data-fy-loader]');
+    if (ld) setTimeout(() => {
+      ld.style.opacity = '0'; ld.style.visibility = 'hidden';
+      setTimeout(() => { ld.style.display = 'none'; }, 650);
+    }, 600);
+    this.wireFaq();
+  }
+  wireFaq() {
+    if (this._faqWired) return;
+    const items = [...document.querySelectorAll('[data-faq-item]')];
+    if (!items.length) return;
+    this._faqWired = true;
+    items.forEach(item => {
+      const q = item.querySelector('[data-faq-q]');
+      const a = item.querySelector('[data-faq-a]');
+      const mark = item.querySelector('[data-faq-mark]');
+      q.addEventListener('click', () => {
+        const open = a.style.maxHeight && a.style.maxHeight !== '0px';
+        if (open) {
+          a.style.maxHeight = '0px';
+          mark.style.transform = 'rotate(0deg)';
+          mark.textContent = '＋';
+        } else {
+          a.style.maxHeight = a.scrollHeight + 'px';
+          mark.style.transform = 'rotate(180deg)';
+          mark.textContent = '−';
+        }
+      });
+    });
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
