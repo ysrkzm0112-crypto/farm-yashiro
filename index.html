@@ -70,7 +70,7 @@
     [style*="font-size: 60px"],[style*="font-size:60px"]{font-size:29px!important;line-height:1.34!important;}
     [style*="font-size: 52px"],[style*="font-size:52px"]{font-size:26px!important;line-height:1.35!important;}
     [style*="font-size: 44px"],[style*="font-size:44px"]{font-size:24px!important;}
-    [style*="font-size: 40px"],[style*="font-size:40px"]{font-size:23px!important;line-height:1.4!important;}
+    [style*="font-size: 40px"],[style*="font-size:40px"]{font-size:21px!important;line-height:1.45!important;}
     [style*="font-size: 38px"],[style*="font-size:38px"]{font-size:23px!important;}
     [style*="font-size: 30px"],[style*="font-size:30px"]{font-size:20px!important;}
     [style*="font-size: 26px"],[style*="font-size:26px"]{font-size:19px!important;}
@@ -82,77 +82,14 @@
     [style*="font-size: 14px"],[style*="font-size:14px"]{font-size:12.5px!important;}
     [data-sim]{max-width:100%!important;}
     [data-fy-fab]{width:46px!important;height:46px!important;}
-    [data-fy-vslider] [data-fy-vtrack]{transform:none!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch;gap:8px;padding-bottom:4px;scrollbar-width:none;}
-    [data-fy-vslider] [data-fy-vtrack]::-webkit-scrollbar{display:none;}
-    [data-fy-vslider] [data-fy-vtrack]>div[style*="0 0 100%"]{flex:0 0 auto!important;width:auto!important;padding:0!important;}
-    [data-fy-vslider] [data-fy-vtrack] [data-keep3]{display:flex!important;grid-template-columns:none!important;gap:8px!important;}
-    [data-fy-vslider] [data-fy-vtrack] [data-keep3]>div{flex:0 0 calc(50vw - 26px)!important;width:calc(50vw - 26px)!important;min-height:0!important;padding:13px!important;border-radius:14px!important;}
-    [data-fy-vslider] [data-fy-vtrack] [data-keep3] p{font-size:10px!important;line-height:1.65!important;margin-bottom:12px!important;}
-    [data-fy-vslider] [data-fy-vtrack] [data-keep3] [style*="border-radius: 999px"],[data-fy-vslider] [data-fy-vtrack] [data-keep3] [style*="border-radius:999px"]{font-size:8px!important;padding:3px 8px!important;margin-bottom:10px!important;}
-    [data-fy-vslider] [data-fy-vtrack] [data-keep3] [style*="width: 44px"],[data-fy-vslider] [data-fy-vtrack] [data-keep3] [style*="width:44px"]{width:26px!important;height:26px!important;font-size:12px!important;}
-    [data-fy-vslider] [data-fy-vtrack] [data-keep3] [style*="font-size: 14px"],[data-fy-vslider] [data-fy-vtrack] [data-keep3] [style*="font-size:14px"]{font-size:10px!important;}
     [data-fy-vprev],[data-fy-vnext],[data-fy-vdots]{display:none!important;}
-  }
-    [style*="justify-content: space-between"][style*="border-bottom"] img[alt="FARM YASHIRO"]{height:24px!important;}
-    [data-hdr-store]{padding:7px 15px!important;font-size:11px!important;}
-    [style*="gap: 26px"][style*="font-size: 14px"]{display:none!important;}
-    [data-hdr-burger]{display:flex!important;}
-    button[aria-label="メニュー"]{display:none!important;}
-    [style*="gap: 26px"][style*="font-size: 14px"] a{flex:0 0 auto;}
-
-    /* every multi-column grid stacks to a single column */
-    [style*="display: grid"]{grid-template-columns:1fr!important;gap:20px!important;}
-    [style*="grid-column: span 2"]{grid-column:auto!important;flex-direction:column!important;align-items:flex-start!important;}
-    [style*="direction: rtl"]{direction:ltr!important;}
-
-    /* horizontal padding + tall section/card padding eases */
-    [style*=" 56px"]{padding-left:18px!important;padding-right:18px!important;}
-    [style*="padding: 72px 56px"]{padding-top:44px!important;padding-bottom:44px!important;}
-    [style*="padding: 64px 56px"]{padding-top:44px!important;padding-bottom:44px!important;}
-    [style*="padding: 48px 40px 44px"]{padding:28px 22px!important;}
-    [style*="padding: 44px 40px"]{padding:26px 20px!important;}
-    [style*="padding: 42px 36px"]{padding:28px 22px!important;}
-
-    /* hero (works for 480/520/560 heroes across pages) */
-    [style*="height: 560px"]{height:400px!important;}
-    [style*="height: 520px"]{height:380px!important;}
-    [style*="height: 480px"]{height:360px!important;}
-    [style*="left: 56px"][style*="position: absolute"]{left:18px!important;right:18px!important;max-width:none!important;}
-    [style*="top: 30px"][style*="width: 104px"]{width:60px!important;top:16px!important;right:16px!important;}
-    [style*="top: 44px"][style*="width: 92px"]{width:52px!important;top:24px!important;right:84px!important;}
-
-    /* horizontal card sliders keep a comfy card width */
-    [style*="(100% - 36px)"]{flex:0 0 86%!important;}
-
-    /* type scale — headings shrink hard, body stays readable */
-    [style*="font-size: 60px"]{font-size:29px!important;line-height:1.34!important;}
-    [style*="font-size: 52px"]{font-size:27px!important;}
-    [style*="font-size: 44px"]{font-size:25px!important;}
-    [style*="font-size: 40px"]{font-size:24px!important;line-height:1.4!important;}
-    [style*="font-size: 38px"]{font-size:24px!important;}
-    [style*="font-size: 30px"]{font-size:20px!important;}
-    [style*="font-size: 26px"]{font-size:19px!important;}
-    [style*="font-size: 24px"]{font-size:18px!important;}
-    [style*="font-size: 23px"]{font-size:18px!important;}
-    [style*="font-size: 22px"]{font-size:18px!important;}
-    [style*="font-size: 20px"]{font-size:16px!important;}
-    [style*="font-size: 15px"]{font-size:13px!important;}
-    [style*="font-size: 14px"]{font-size:12.5px!important;}
-
-    [data-sim]{max-width:100%!important;}
-    [data-fy-fab]{width:46px!important;height:46px!important;}
-
-    /* お客様の声: native horizontal scroll, 2 mini cards visible */
-    [data-fy-vslider] [data-fy-vtrack]{transform:none!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch;gap:8px;padding-bottom:4px;scrollbar-width:none;}
-    [data-fy-vslider] [data-fy-vtrack]::-webkit-scrollbar{display:none;}
-    [data-fy-vslider] [data-fy-vtrack] > div[style*="0 0 100%"]{flex:0 0 auto!important;width:auto!important;padding:0!important;}
-    [data-fy-vslider] [data-fy-vtrack] [data-keep3]{display:flex!important;grid-template-columns:none!important;gap:8px!important;}
-    [data-fy-vslider] [data-fy-vtrack] [data-keep3] > div{flex:0 0 calc(50vw - 26px)!important;width:calc(50vw - 26px)!important;min-height:0!important;padding:13px!important;border-radius:14px!important;}
-    [data-fy-vslider] [data-fy-vtrack] [data-keep3] p{font-size:10px!important;line-height:1.65!important;margin-bottom:12px!important;}
-    [data-fy-vslider] [data-fy-vtrack] [data-keep3] [style*="border-radius: 999px"]{font-size:8px!important;padding:3px 8px!important;margin-bottom:10px!important;}
-    [data-fy-vslider] [data-fy-vtrack] [data-keep3] [style*="width: 44px"]{width:26px!important;height:26px!important;font-size:12px!important;}
-    [data-fy-vslider] [data-fy-vtrack] [data-keep3] [style*="font-size: 14px"]{font-size:10px!important;}
-    [data-fy-vprev],[data-fy-vnext],[data-fy-vdots]{display:none!important;}
+    /* awards: main card – shrink image + reduce padding */
+    [style*="grid-column:span 2"][style*="padding:32px 34px"],[style*="grid-column: span 2"][style*="padding: 32px 34px"]{padding:20px 18px!important;}
+    [style*="grid-column:span 2"] img[style*="width:104px"],[style*="grid-column: span 2"] img[style*="width: 104px"]{width:60px!important;}
+    /* awards: smaller cards – slightly tighten */
+    [style*="border-radius:24px"][style*="padding:28px"],[style*="border-radius: 24px"][style*="padding: 28px"]{padding:16px 14px!important;}
+    /* CTA heading */
+    [style*="padding:96px"] h2,[style*="padding: 96px"] h2{font-size:18px!important;line-height:1.6!important;}
   }
 </style>
 </helmet>
@@ -802,57 +739,54 @@
   }
   wireSlider() {
     const self = this;
+    if (self._vRaf) { cancelAnimationFrame(self._vRaf); self._vRaf = null; }
+    if (self._vTimer) { clearInterval(self._vTimer); self._vTimer = null; }
     document.querySelectorAll('[data-fy-root] [data-fy-vslider]').forEach(sl => {
-      const track = sl.querySelector('[data-fy-vtrack]');
-      const slides = track ? [...track.children] : [];
-      if (!track || slides.length === 0) return;
-      const dots = sl.querySelector('[data-fy-vdots]');
-      let idx = parseInt(sl.dataset.idx || '0', 10);
-      const go = (i) => {
-        idx = (i + slides.length) % slides.length;
-        sl.dataset.idx = idx;
-        track.style.transform = 'translateX(' + (-idx * 100) + '%)';
-        if (dots) [...dots.children].forEach((d, j) => { d.style.background = j === idx ? '#32285B' : '#D9D5E6'; });
+      if (sl.dataset.vwired) return;
+      sl.dataset.vwired = '1';
+      ['[data-fy-vprev]','[data-fy-vnext]','[data-fy-vdots]'].forEach(q => {
+        const el = sl.querySelector(q); if (el) el.style.display = 'none';
+      });
+      const allCards = [...sl.querySelectorAll('[data-keep3] > div')];
+      if (!allCards.length) return;
+      const clip = sl.querySelector('[style*="overflow:hidden"]') || sl;
+      clip.style.overflow = 'hidden';
+      const isMob = window.innerWidth <= 768;
+      const GAP = 16;
+      const CW = isMob ? Math.floor(window.innerWidth * 0.68) : Math.floor((clip.clientWidth || 1080) / 3.2);
+      const ticker = document.createElement('div');
+      ticker.style.cssText = 'display:flex;gap:' + GAP + 'px;padding:4px 0;will-change:transform;';
+      const cardOf = (orig, hidden) => {
+        const c = orig.cloneNode(true);
+        c.style.flex = '0 0 ' + CW + 'px';
+        c.style.width = CW + 'px';
+        c.style.boxSizing = 'border-box';
+        if (isMob) { c.style.minHeight = 'auto'; c.style.padding = '16px'; }
+        if (hidden) c.setAttribute('aria-hidden', 'true');
+        return c;
       };
-      if (!sl.dataset.vwired) {
-        sl.dataset.vwired = '1';
-        if (dots && dots.children.length === 0) {
-          slides.forEach((_, j) => {
-            const d = document.createElement('button');
-            d.style.cssText = 'width:9px;height:9px;border-radius:50%;border:none;padding:0;cursor:pointer;background:#D9D5E6;transition:background .2s;';
-            d.addEventListener('click', () => go(j));
-            dots.appendChild(d);
-          });
+      allCards.forEach(d => ticker.appendChild(cardOf(d, false)));
+      allCards.forEach(d => ticker.appendChild(cardOf(d, true)));
+      clip.innerHTML = '';
+      clip.appendChild(ticker);
+      const LOOP_W = (CW + GAP) * allCards.length;
+      let pos = 0, paused = false;
+      const SPEED = isMob ? 1.0 : 0.8;
+      const pause = () => { paused = true; };
+      const resume = () => { setTimeout(() => { paused = false; }, 1200); };
+      sl.addEventListener('mouseenter', pause);
+      sl.addEventListener('mouseleave', resume);
+      sl.addEventListener('touchstart', pause, { passive: true });
+      sl.addEventListener('touchend', resume, { passive: true });
+      const tick = () => {
+        if (!paused) {
+          pos += SPEED;
+          if (pos >= LOOP_W) pos -= LOOP_W;
+          ticker.style.transform = 'translateX(-' + pos + 'px)';
         }
-        const prev = sl.querySelector('[data-fy-vprev]');
-        const next = sl.querySelector('[data-fy-vnext]');
-        if (prev) prev.addEventListener('click', () => go(idx - 1));
-        if (next) next.addEventListener('click', () => go(idx + 1));
-        const isMobile = () => window.matchMedia('(max-width:768px)').matches;
-        if (self._vTimer) clearInterval(self._vTimer);
-        if (self._vRaf) cancelAnimationFrame(self._vRaf);
-        // continuous smooth scroll on mobile, stepped fade on desktop
-        let paused = false;
-        track.addEventListener('touchstart', () => { paused = true; }, { passive: true });
-        track.addEventListener('touchend', () => { setTimeout(() => { paused = false; }, 1200); }, { passive: true });
-        const SPEED = 0.35; // px per frame ≈ 21px/s, gentle
-        const tick = () => {
-          if (isMobile()) {
-            if (!paused) {
-              const maxLeft = track.scrollWidth - track.clientWidth;
-              if (maxLeft > 1) {
-                let nl = track.scrollLeft + SPEED;
-                if (nl >= maxLeft - 0.5) nl = 0;
-                track.scrollLeft = nl;
-              }
-            }
-          }
-          self._vRaf = requestAnimationFrame(tick);
-        };
         self._vRaf = requestAnimationFrame(tick);
-        self._vTimer = setInterval(() => { if (!isMobile()) go(idx + 1); }, 6000);
-      }
-      go(idx);
+      };
+      self._vRaf = requestAnimationFrame(tick);
     });
   }
   wireFaq() {
