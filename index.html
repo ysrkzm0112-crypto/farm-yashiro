@@ -649,6 +649,8 @@
     if (!menu || menu._mw) return;
     menu._mw = true;
     document.body.appendChild(menu);
+    const burger = document.querySelector('[data-hdr-burger]');
+    if (burger) document.body.appendChild(burger);
     menu.style.opacity = '0';
     menu.style.visibility = 'hidden';
     menu.style.pointerEvents = 'none';

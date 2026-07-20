@@ -332,6 +332,8 @@ class Component extends DCLogic {
     if (!menu || !cb) { if (tries > 50) clearInterval(t); return; }
     clearInterval(t);
     document.body.appendChild(menu);
+    var burger = document.querySelector('[data-hdr-burger]');
+    if (burger) document.body.appendChild(burger);
     menu.style.opacity = '0'; menu.style.visibility = 'hidden'; menu.style.pointerEvents = 'none';
     var close = function(){ cb.checked = false; menu.style.opacity = '0'; menu.style.visibility = 'hidden'; menu.style.pointerEvents = 'none'; };
     cb.addEventListener('change', function(){
