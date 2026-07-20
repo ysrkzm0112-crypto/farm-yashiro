@@ -322,5 +322,24 @@ class Component extends DCLogic {
   renderVals() { return {}; }
 }
 </script>
-</body>
+<script>
+(function(){
+  var tries = 0;
+  var t = setInterval(function(){
+    tries++;
+    var menu = document.querySelector('[data-fy-menu]');
+    var cb = document.getElementById('fyMenu');
+    if (!menu || !cb) { if (tries > 50) clearInterval(t); return; }
+    clearInterval(t);
+    document.body.appendChild(menu);
+    menu.style.opacity = '0'; menu.style.visibility = 'hidden'; menu.style.pointerEvents = 'none';
+    var close = function(){ cb.checked = false; menu.style.opacity = '0'; menu.style.visibility = 'hidden'; menu.style.pointerEvents = 'none'; };
+    cb.addEventListener('change', function(){
+      if (cb.checked) { menu.style.opacity = '1'; menu.style.visibility = 'visible'; menu.style.pointerEvents = 'auto'; }
+      else close();
+    });
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  }, 100);
+})();
+</script></body>
 </html>
