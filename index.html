@@ -83,11 +83,6 @@
     [data-sim]{max-width:100%!important;}
     [data-fy-fab]{width:46px!important;height:46px!important;}
     [data-fy-vprev],[data-fy-vnext],[data-fy-vdots]{display:none!important;}
-    /* awards: main card – shrink image + reduce padding */
-    [style*="grid-column:span 2"][style*="padding:32px 34px"],[style*="grid-column: span 2"][style*="padding: 32px 34px"]{padding:20px 18px!important;}
-    [style*="grid-column:span 2"] img[style*="width:104px"],[style*="grid-column: span 2"] img[style*="width: 104px"]{width:60px!important;}
-    /* awards: smaller cards – slightly tighten */
-    [style*="border-radius:24px"][style*="padding:28px"],[style*="border-radius: 24px"][style*="padding: 28px"]{padding:16px 14px!important;}
     /* CTA heading */
     [style*="padding:96px"] h2,[style*="padding: 96px"] h2{font-size:18px!important;line-height:1.6!important;}
   }
@@ -261,42 +256,35 @@
         <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#32285B;display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:34px;height:3px;background:#32285B;border-radius:3px;"></span>AWARDS</div>
         <h2 style="font-size:40px;font-weight:900;line-height:1.35;margin:0 0 16px;">プロの審査員からも<span>高く評価</span></h2>
         <p style="font-size:15px;color:#7C8A75;line-height:1.9;font-weight:500;max-width:600px;margin:0;">産地や品種、生産者の情報を伏せたブラインド審査で、その味わいが評価されました。</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:44px;">
-          <div style="grid-column:span 2;background:#32285B;border-radius:24px;padding:32px 34px;display:flex;align-items:flex-start;gap:26px;position:relative;overflow:hidden;">
-            <div style="position:absolute;top:-70px;right:-50px;width:180px;height:180px;background:rgba(247,224,52,.18);border-radius:60% 40% 40% 60%/55% 45% 55% 45%;"></div>
-            <img src="assets/awards/farmers-of-year-trans.png" alt="FARMERS OF THE YEAR" style="width:104px;height:auto;flex-shrink:0;position:relative;z-index:1;filter:drop-shadow(0 8px 18px rgba(0,0,0,.3));">
-            <div style="position:relative;z-index:1;">
-              <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;color:#F7E034;margin-bottom:6px;">JAPAN SATSUMA IMO SUMMIT</div>
-              <h3 style="font-size:19px;font-weight:900;margin:0 0 6px;color:#fff;">ファーマーズ・オブ・ザ・イヤー 2025-26</h3>
-              <p style="font-size:13px;color:rgba(255,255,255,.82);line-height:1.8;font-weight:500;margin:0 0 14px;">日本さつまいもサミットにて、その年最も優れた生産者として表彰されました。</p>
-              <div style="border-top:1px solid rgba(255,255,255,.16);padding-top:14px;">
-                <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:.16em;color:#F7E034;margin-bottom:6px;">VOICE FROM THE AWARDS</div>
-                <p style="font-size:13.5px;color:#fff;line-height:1.9;font-weight:500;margin:0;">授賞式では、べにはるか生みの親でもある<strong style="color:#F7E034;">山川 理氏</strong>より、独自の肥料設計による栽培や収量などを講評いただきました。</p>
-              </div>
+        <div style="background:#32285B;border-radius:24px;padding:30px 34px;display:flex;align-items:center;gap:30px;overflow:hidden;position:relative;box-shadow:0 20px 44px -30px rgba(50,40,91,.55);margin-top:44px;">
+          <div style="position:absolute;top:-90px;right:-60px;width:200px;height:200px;background:rgba(247,224,52,.22);border-radius:60% 40% 40% 60%/55% 45% 55% 45%;"></div>
+          <img src="assets/awards/farmers-of-year-trans.png" alt="FARMERS OF THE YEAR" style="width:100px;height:auto;flex-shrink:0;position:relative;z-index:1;filter:drop-shadow(0 10px 22px rgba(0,0,0,.35));">
+          <div style="position:relative;z-index:1;color:#fff;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;color:#F7E034;margin-bottom:8px;">FARMERS OF THE YEAR 2025-26</div>
+            <p style="font-size:20px;font-weight:900;line-height:1.5;margin:0 0 8px;">さつまいも博 さつまいもサミット<br>ファーマーズ・オブ・ザ・イヤー 受賞</p>
+            <p style="font-size:13px;color:rgba(255,255,255,.82);line-height:1.8;font-weight:500;margin:0;">授賞式では、べにはるか生みの親でもある<strong style="color:#F7E034;">山川 理氏</strong>より、独自の肥料設計による栽培や収量などを講評いただきました。</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px;">
+          <div style="background:#fff;border:2px solid #F0C808;border-radius:22px;padding:24px 26px;display:flex;align-items:center;gap:20px;box-shadow:0 16px 34px -24px rgba(50,40,91,.35);">
+            <img src="assets/awards/gold-medal-trans.png" alt="最高金賞" style="width:66px;height:auto;flex-shrink:0;filter:drop-shadow(0 8px 16px rgba(0,0,0,.2));">
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;color:#B8860B;margin-bottom:6px;">GOLD</div>
+              <p style="font-size:14px;font-weight:900;line-height:1.6;margin:0;">第2回焼き芋選手権<br>最高金賞（シルクスイート）</p>
             </div>
           </div>
-          <div style="background:#fff;border:1px solid #E7E4F0;border-radius:24px;padding:28px;display:flex;align-items:center;gap:22px;box-shadow:0 14px 28px -20px rgba(50,40,91,.3);">
-            <img src="assets/awards/gold-medal-trans.png" alt="最高金賞" style="width:80px;height:auto;flex-shrink:0;">
+          <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:24px 26px;display:flex;align-items:center;gap:20px;box-shadow:0 16px 34px -24px rgba(50,40,91,.35);">
+            <div style="width:66px;height:66px;border-radius:50%;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#EEF0F5;color:#6A7086;font-family:'Space Grotesk',sans-serif;"><span style="font-size:10px;font-weight:700;letter-spacing:.1em;">SILVER</span><span style="font-size:20px;font-weight:700;line-height:1;">銀賞</span></div>
             <div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:6px;">YAKIIMO CHAMPIONSHIP</div>
-              <h3 style="font-size:18px;font-weight:900;margin:0 0 6px;">最高金賞（シルクスイート）</h3>
-              <p style="font-size:13px;color:#7C8A75;line-height:1.8;font-weight:500;margin:0;">第2回全国焼き芋（サツマイモ）選手権 サツマイモ部門にて最高金賞。</p>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;color:#8A8FA8;margin-bottom:6px;">VEGETABLE SOMMELIER</div>
+              <p style="font-size:14px;font-weight:900;line-height:1.6;margin:0;">野菜ソムリエサミット<br>銀賞（べにはるか）</p>
             </div>
           </div>
-          <div style="background:#fff;border:1px solid #E7E4F0;border-radius:24px;padding:28px;display:flex;align-items:center;gap:22px;box-shadow:0 14px 28px -20px rgba(50,40,91,.3);">
-            <div style="width:80px;height:80px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;color:#fff;background:#A8A8B0;">SILVER</div>
+          <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:24px 26px;display:flex;align-items:center;gap:20px;box-shadow:0 16px 34px -24px rgba(50,40,91,.35);">
+            <div style="width:66px;height:66px;border-radius:50%;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#F3E3D3;color:#A96A3E;font-family:'Space Grotesk',sans-serif;"><span style="font-size:10px;font-weight:700;letter-spacing:.1em;">BRONZE</span><span style="font-size:20px;font-weight:700;line-height:1;">銅賞</span></div>
             <div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:6px;">YASAI SOMMELIER SUMMIT</div>
-              <h3 style="font-size:18px;font-weight:900;margin:0 0 6px;">銀賞（べにはるか）</h3>
-              <p style="font-size:13px;color:#7C8A75;line-height:1.8;font-weight:500;margin:0;">野菜ソムリエサミットにて、べにはるかが銀賞を受賞。</p>
-            </div>
-          </div>
-          <div style="background:#fff;border:1px solid #E7E4F0;border-radius:24px;padding:28px;display:flex;align-items:center;gap:22px;box-shadow:0 14px 28px -20px rgba(50,40,91,.3);">
-            <div style="width:80px;height:80px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;color:#fff;background:#BD8C5E;">BRONZE</div>
-            <div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:6px;">YAKIIMO CHAMPIONSHIP</div>
-              <h3 style="font-size:18px;font-weight:900;margin:0 0 6px;">銅賞（べにはるか）</h3>
-              <p style="font-size:13px;color:#7C8A75;line-height:1.8;font-weight:500;margin:0;">第2回全国焼き芋（サツマイモ）選手権 サツマイモ部門にて、べにはるかが銅賞を受賞。</p>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;color:#A96A3E;margin-bottom:6px;white-space:nowrap;">YAKIIMO CHAMP.</div>
+              <p style="font-size:14px;font-weight:900;line-height:1.6;margin:0;">第2回焼き芋選手権<br>銅賞（べにはるか）</p>
             </div>
           </div>
         </div>
@@ -583,7 +571,6 @@
     s.textContent = css;
 
     this.wireMenu();
-    this.wireAwards();
     this.wireFaq();
     this.wireSlider();
     this.wireReveal();
@@ -681,21 +668,6 @@
       }
     });
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
-  }
-  wireAwards() {
-    if (window.innerWidth > 768) return;
-    const grid = document.querySelector('[data-fy-root] [style*="grid-template-columns:1fr 1fr"]');
-    if (!grid) return;
-    grid.style.gridTemplateColumns = '1fr';
-    grid.style.gap = '16px';
-    const mainCard = grid.querySelector('[style*="grid-column:span 2"]');
-    if (mainCard) {
-      mainCard.style.gridColumn = 'auto';
-      mainCard.style.flexDirection = 'column';
-      mainCard.style.padding = '20px 16px';
-      const img = mainCard.querySelector('img');
-      if (img) img.style.width = '60px';
-    }
   }
   buildLoaderOverlay() {
     if (window.__oimoLoaderShown) return;
