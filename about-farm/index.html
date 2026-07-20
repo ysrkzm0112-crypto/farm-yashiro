@@ -279,25 +279,50 @@ class Component extends DCLogic {
   wireFields() {
     if (this._fieldsWired) return;
     const track = document.querySelector('[data-fy-ftrack]');
-    const prev = document.querySelector('[data-fy-fprev]');
-    const next = document.querySelector('[data-fy-fnext]');
-    if (!track || !prev || !next) return;
+    if (!track) return;
     this._fieldsWired = true;
-    const step = () => (track.querySelector('div') ? track.querySelector('div').offsetWidth + 18 : track.clientWidth / 3);
-    const atEnd = () => track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
-    prev.addEventListener('click', () => { pause(); track.scrollBy({ left: -step(), behavior: 'smooth' }); });
-    next.addEventListener('click', () => { pause(); track.scrollBy({ left: step(), behavior: 'smooth' }); });
-    let timer = null;
-    const tick = () => {
-      if (atEnd()) track.scrollTo({ left: 0, behavior: 'smooth' });
-      else track.scrollBy({ left: step(), behavior: 'smooth' });
+    ['[data-fy-fprev]', '[data-fy-fnext]'].forEach(q => {
+      const el = document.querySelector(q); if (el) el.style.display = 'none';
+    });
+    const items = [...track.children];
+    if (!items.length) return;
+    const wrap = document.querySelector('[data-fy-fields]') || track;
+    const isMob = window.innerWidth <= 768;
+    const GAP = 18;
+    const CW = isMob ? Math.floor(window.innerWidth * 0.72) : Math.floor(((track.clientWidth || 1080) - GAP * 2) / 3);
+    const ticker = document.createElement('div');
+    ticker.style.cssText = 'display:flex;gap:' + GAP + 'px;';
+    const itemOf = (orig, hidden) => {
+      const c = orig.cloneNode(true);
+      c.style.flex = '0 0 ' + CW + 'px';
+      c.style.width = CW + 'px';
+      if (hidden) c.setAttribute('aria-hidden', 'true');
+      return c;
     };
-    const play = () => { if (!timer) timer = setInterval(tick, 3000); };
-    const pause = () => { clearInterval(timer); timer = null; setTimeout(play, 6000); };
-    const wrap = document.querySelector('[data-fy-fields]');
-    wrap.addEventListener('mouseenter', () => { clearInterval(timer); timer = null; });
-    wrap.addEventListener('mouseleave', play);
-    play();
+    items.forEach(d => ticker.appendChild(itemOf(d, false)));
+    items.forEach(d => ticker.appendChild(itemOf(d, true)));
+    track.style.overflow = 'hidden';
+    track.style.scrollBehavior = 'auto';
+    track.innerHTML = '';
+    track.appendChild(ticker);
+    const LOOP_W = (CW + GAP) * items.length;
+    let pos = 0, paused = false;
+    const SPEED = isMob ? 0.9 : 0.7;
+    const pause = () => { paused = true; };
+    const resume = () => { setTimeout(() => { paused = false; }, 1200); };
+    wrap.addEventListener('mouseenter', pause);
+    wrap.addEventListener('mouseleave', () => { paused = false; });
+    wrap.addEventListener('touchstart', pause, { passive: true });
+    wrap.addEventListener('touchend', resume, { passive: true });
+    const tick = () => {
+      if (!paused) {
+        pos += SPEED;
+        if (pos >= LOOP_W) pos -= LOOP_W;
+        ticker.style.transform = 'translateX(-' + pos + 'px)';
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
   }
   renderVals() { return {}; }
 }

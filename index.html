@@ -483,7 +483,7 @@
         <img src="assets/photos/store-cta.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
         <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(50,40,91,.72),rgba(50,40,91,.82));"></div>
         <div style="position:relative;z-index:1;">
-          <h2 style="font-size:40px;font-weight:900;margin:0 0 16px;">受賞歴のあるさつまいもを、<span style="background:#F7E034;color:#33402F;padding:2px 14px;border-radius:40px;">オンラインストア</span>で。</h2>
+          <h2 style="font-size:40px;font-weight:900;margin:0 0 16px;">受賞歴のあるさつまいもを、<br><span style="background:#F7E034;color:#33402F;padding:2px 14px;border-radius:40px;">オンラインストア</span>で。</h2>
           <p style="font-size:14px;color:rgba(255,255,255,.9);font-weight:500;margin:0 0 30px;">A品から訳あり品まで、ご自宅用・贈答用にお選びいただけます。</p>
           <a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="display:inline-block;background:#fff;color:#32285B;padding:15px 34px;border-radius:999px;font-size:14px;font-weight:700;box-shadow:0 6px 0 rgba(0,0,0,.15);text-decoration:none;">オンラインストアを見る →</a>
         </div>
@@ -582,6 +582,8 @@
     css += `[data-fy-accent]>*:not([data-fy-blob]){position:relative;z-index:1;}`;
     s.textContent = css;
 
+    this.wireMenu();
+    this.wireAwards();
     this.wireFaq();
     this.wireSlider();
     this.wireReveal();
@@ -653,6 +655,47 @@
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+  }
+  wireMenu() {
+    const cb = document.getElementById('fyMenu');
+    const menu = document.querySelector('[data-fy-menu]');
+    if (!menu || menu._mw) return;
+    menu._mw = true;
+    document.body.appendChild(menu);
+    menu.style.opacity = '0';
+    menu.style.visibility = 'hidden';
+    menu.style.pointerEvents = 'none';
+    const close = () => {
+      if (cb) cb.checked = false;
+      menu.style.opacity = '0';
+      menu.style.visibility = 'hidden';
+      menu.style.pointerEvents = 'none';
+    };
+    if (cb) cb.addEventListener('change', () => {
+      if (cb.checked) {
+        menu.style.opacity = '1';
+        menu.style.visibility = 'visible';
+        menu.style.pointerEvents = 'auto';
+      } else {
+        close();
+      }
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  }
+  wireAwards() {
+    if (window.innerWidth > 768) return;
+    const grid = document.querySelector('[data-fy-root] [style*="grid-template-columns:1fr 1fr"]');
+    if (!grid) return;
+    grid.style.gridTemplateColumns = '1fr';
+    grid.style.gap = '16px';
+    const mainCard = grid.querySelector('[style*="grid-column:span 2"]');
+    if (mainCard) {
+      mainCard.style.gridColumn = 'auto';
+      mainCard.style.flexDirection = 'column';
+      mainCard.style.padding = '20px 16px';
+      const img = mainCard.querySelector('img');
+      if (img) img.style.width = '60px';
+    }
   }
   buildLoaderOverlay() {
     if (window.__oimoLoaderShown) return;
@@ -755,7 +798,7 @@
       const GAP = 16;
       const CW = isMob ? Math.floor(window.innerWidth * 0.68) : Math.floor((clip.clientWidth || 1080) / 3.2);
       const ticker = document.createElement('div');
-      ticker.style.cssText = 'display:flex;gap:' + GAP + 'px;padding:4px 0;will-change:transform;';
+      ticker.style.cssText = 'display:flex;gap:' + GAP + 'px;padding:4px 0;';
       const cardOf = (orig, hidden) => {
         const c = orig.cloneNode(true);
         c.style.flex = '0 0 ' + CW + 'px';
