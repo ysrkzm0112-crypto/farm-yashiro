@@ -314,6 +314,7 @@ class Component extends DCLogic {
     wrap.addEventListener('mouseleave', () => { paused = false; });
     wrap.addEventListener('touchstart', pause, { passive: true });
     wrap.addEventListener('touchend', resume, { passive: true });
+    wrap.addEventListener('touchcancel', resume, { passive: true });
     const tick = () => {
       if (!paused) {
         pos += SPEED;

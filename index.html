@@ -799,6 +799,7 @@
       sl.addEventListener('mouseleave', resume);
       sl.addEventListener('touchstart', pause, { passive: true });
       sl.addEventListener('touchend', resume, { passive: true });
+      sl.addEventListener('touchcancel', resume, { passive: true });
       const tick = () => {
         if (!paused) {
           pos += SPEED;
