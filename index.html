@@ -799,56 +799,59 @@
     document.querySelectorAll('[data-fy-root] [data-fy-slide]').forEach(el => sio.observe(el));
   }
   wireSlider() {
-    const self = this;
-    if (self._vRaf) { cancelAnimationFrame(self._vRaf); self._vRaf = null; }
-    if (self._vTimer) { clearInterval(self._vTimer); self._vTimer = null; }
     document.querySelectorAll('[data-fy-root] [data-fy-vslider]').forEach(sl => {
-      if (sl.dataset.vwired) return;
-      sl.dataset.vwired = '1';
-      ['[data-fy-vprev]','[data-fy-vnext]','[data-fy-vdots]'].forEach(q => {
-        const el = sl.querySelector(q); if (el) el.style.display = 'none';
-      });
-      const allCards = [...sl.querySelectorAll('[data-keep3] > div')];
-      if (!allCards.length) return;
       const clip = sl.querySelector('[style*="overflow:hidden"]') || sl;
-      clip.style.overflow = 'hidden';
-      const isMob = window.innerWidth <= 768;
-      const GAP = 16;
-      const CW = isMob ? Math.floor(window.innerWidth * 0.68) : Math.floor((clip.clientWidth || 1080) / 3.2);
-      const ticker = document.createElement('div');
-      ticker.style.cssText = 'display:flex;gap:' + GAP + 'px;padding:4px 0;';
-      const cardOf = (orig, hidden) => {
-        const c = orig.cloneNode(true);
-        c.style.flex = '0 0 ' + CW + 'px';
-        c.style.width = CW + 'px';
-        c.style.boxSizing = 'border-box';
-        if (isMob) { c.style.minHeight = 'auto'; c.style.padding = '16px'; }
-        if (hidden) c.setAttribute('aria-hidden', 'true');
-        return c;
-      };
-      allCards.forEach(d => ticker.appendChild(cardOf(d, false)));
-      allCards.forEach(d => ticker.appendChild(cardOf(d, true)));
-      clip.innerHTML = '';
-      clip.appendChild(ticker);
-      const LOOP_W = (CW + GAP) * allCards.length;
-      let pos = 0, paused = false;
-      const SPEED = isMob ? 1.0 : 0.8;
-      const pause = () => { paused = true; };
-      const resume = () => { setTimeout(() => { paused = false; }, 1200); };
-      sl.addEventListener('mouseenter', pause);
-      sl.addEventListener('mouseleave', resume);
-      sl.addEventListener('touchstart', pause, { passive: true });
-      sl.addEventListener('touchend', resume, { passive: true });
-      sl.addEventListener('touchcancel', resume, { passive: true });
+
+      // --- マーキー本体の構築（未構築、または再描画で消えた場合のみ組み直す） ---
+      if (!clip.querySelector('[data-fy-ticker]')) {
+        ['[data-fy-vprev]','[data-fy-vnext]','[data-fy-vdots]'].forEach(q => {
+          const el = sl.querySelector(q); if (el) el.style.display = 'none';
+        });
+        const allCards = [...sl.querySelectorAll('[data-keep3] > div')];
+        if (!allCards.length) return;
+        clip.style.overflow = 'hidden';
+        const isMob = window.innerWidth <= 768;
+        const GAP = 16;
+        const CW = isMob ? Math.floor(window.innerWidth * 0.68) : Math.floor((clip.clientWidth || 1080) / 3.2);
+        const ticker = document.createElement('div');
+        ticker.setAttribute('data-fy-ticker', '');
+        ticker.style.cssText = 'display:flex;gap:' + GAP + 'px;padding:4px 0;will-change:transform;';
+        const cardOf = (orig, hidden) => {
+          const c = orig.cloneNode(true);
+          c.style.flex = '0 0 ' + CW + 'px';
+          c.style.width = CW + 'px';
+          c.style.boxSizing = 'border-box';
+          if (isMob) { c.style.minHeight = 'auto'; c.style.padding = '16px'; }
+          if (hidden) c.setAttribute('aria-hidden', 'true');
+          return c;
+        };
+        allCards.forEach(d => ticker.appendChild(cardOf(d, false)));
+        allCards.forEach(d => ticker.appendChild(cardOf(d, true)));
+        clip.innerHTML = '';
+        clip.appendChild(ticker);
+        sl._fyState = { pos: 0, paused: false, loopW: (CW + GAP) * allCards.length, speed: isMob ? 1.0 : 0.8 };
+        const pause = () => { sl._fyState.paused = true; };
+        const resume = () => { setTimeout(() => { if (sl._fyState) sl._fyState.paused = false; }, 1200); };
+        sl.addEventListener('mouseenter', pause);
+        sl.addEventListener('mouseleave', resume);
+        sl.addEventListener('touchstart', pause, { passive: true });
+        sl.addEventListener('touchend', resume, { passive: true });
+        sl.addEventListener('touchcancel', resume, { passive: true });
+      }
+
+      // --- アニメーションループは1本だけ常駐させる（React再描画後も止めない） ---
+      if (sl._fyRaf) return;
       const tick = () => {
-        if (!paused) {
-          pos += SPEED;
-          if (pos >= LOOP_W) pos -= LOOP_W;
-          ticker.style.transform = 'translateX(-' + pos + 'px)';
+        const st = sl._fyState;
+        const tk = clip.querySelector('[data-fy-ticker]');
+        if (st && tk && !st.paused) {
+          st.pos += st.speed;
+          if (st.pos >= st.loopW) st.pos -= st.loopW;
+          tk.style.transform = 'translateX(-' + st.pos + 'px)';
         }
-        self._vRaf = requestAnimationFrame(tick);
+        sl._fyRaf = requestAnimationFrame(tick);
       };
-      self._vRaf = requestAnimationFrame(tick);
+      sl._fyRaf = requestAnimationFrame(tick);
     });
   }
   wireFaq() {
