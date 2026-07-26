@@ -799,6 +799,13 @@
     document.querySelectorAll('[data-fy-root] [data-fy-slide]').forEach(el => sio.observe(el));
   }
   wireSlider() {
+    // CSSキーフレームを1度だけ用意（要素が作り直されても効き続ける無限マーキー）
+    if (!document.getElementById('fy-marquee-kf')) {
+      const kf = document.createElement('style');
+      kf.id = 'fy-marquee-kf';
+      kf.textContent = '@keyframes fyMarquee{from{transform:translateX(0)}to{transform:translateX(var(--fy-loop))}}';
+      document.head.appendChild(kf);
+    }
     document.querySelectorAll('[data-fy-root] [data-fy-vslider]').forEach(sl => {
       const clip = sl.querySelector('[style*="overflow:hidden"]') || sl;
 
@@ -813,9 +820,11 @@
         const isMob = window.innerWidth <= 768;
         const GAP = 16;
         const CW = isMob ? Math.floor(window.innerWidth * 0.68) : Math.floor((clip.clientWidth || 1080) / 3.2);
+        const loopW = (CW + GAP) * allCards.length;          // カード1セット分の幅
+        const dur = loopW / (isMob ? 60 : 48);                // 速度(px/秒)から所要時間を算出
         const ticker = document.createElement('div');
         ticker.setAttribute('data-fy-ticker', '');
-        ticker.style.cssText = 'display:flex;gap:' + GAP + 'px;padding:4px 0;will-change:transform;';
+        ticker.style.cssText = 'display:flex;gap:' + GAP + 'px;padding:4px 0;width:max-content;will-change:transform;--fy-loop:-' + loopW + 'px;animation:fyMarquee ' + dur + 's linear infinite;';
         const cardOf = (orig, hidden) => {
           const c = orig.cloneNode(true);
           c.style.flex = '0 0 ' + CW + 'px';
@@ -825,33 +834,26 @@
           if (hidden) c.setAttribute('aria-hidden', 'true');
           return c;
         };
+        // カードを2セット並べる → 1セット分スクロールし切ると次のセットが継ぎ目なく続く
         allCards.forEach(d => ticker.appendChild(cardOf(d, false)));
         allCards.forEach(d => ticker.appendChild(cardOf(d, true)));
         clip.innerHTML = '';
         clip.appendChild(ticker);
-        sl._fyState = { pos: 0, paused: false, loopW: (CW + GAP) * allCards.length, speed: isMob ? 1.0 : 0.8 };
-        const pause = () => { sl._fyState.paused = true; };
-        const resume = () => { setTimeout(() => { if (sl._fyState) sl._fyState.paused = false; }, 1200); };
+      }
+
+      // --- ホバー／タッチ中だけ一時停止（リスナーはスライダー毎に1度だけ付与） ---
+      if (!sl.dataset.fyPause) {
+        sl.dataset.fyPause = '1';
+        let tmr;
+        const setPlay = (s) => { const t = clip.querySelector('[data-fy-ticker]'); if (t) t.style.animationPlayState = s; };
+        const pause = () => { clearTimeout(tmr); setPlay('paused'); };
+        const resume = () => { clearTimeout(tmr); tmr = setTimeout(() => setPlay('running'), 1200); };
         sl.addEventListener('mouseenter', pause);
         sl.addEventListener('mouseleave', resume);
         sl.addEventListener('touchstart', pause, { passive: true });
         sl.addEventListener('touchend', resume, { passive: true });
         sl.addEventListener('touchcancel', resume, { passive: true });
       }
-
-      // --- アニメーションループは1本だけ常駐させる（React再描画後も止めない） ---
-      if (sl._fyRaf) return;
-      const tick = () => {
-        const st = sl._fyState;
-        const tk = clip.querySelector('[data-fy-ticker]');
-        if (st && tk && !st.paused) {
-          st.pos += st.speed;
-          if (st.pos >= st.loopW) st.pos -= st.loopW;
-          tk.style.transform = 'translateX(-' + st.pos + 'px)';
-        }
-        sl._fyRaf = requestAnimationFrame(tick);
-      };
-      sl._fyRaf = requestAnimationFrame(tick);
     });
   }
   wireFaq() {
