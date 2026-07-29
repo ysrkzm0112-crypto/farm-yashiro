@@ -174,8 +174,8 @@
           </div>
 
           <label style="display:block;font-size:13px;font-weight:700;margin:0 0 7px;">数量（kg）</label>
-          <input data-qty type="number" min="1" step="1" inputmode="numeric" style="width:100%;padding:11px 13px;border-radius:11px;border:1px solid #E7E4F0;background:#F9F9F9;color:#33402F;font-size:15px;font-family:inherit;box-sizing:border-box;">
-          <p style="font-size:12px;color:#9A93B8;margin:7px 0 0;line-height:1.6;">ご希望のキロ数を入力してください（例：10kgなら「10」）</p>
+          <input data-qty type="number" min="20" step="1" inputmode="numeric" style="width:100%;padding:11px 13px;border-radius:11px;border:1px solid #E7E4F0;background:#F9F9F9;color:#33402F;font-size:15px;font-family:inherit;box-sizing:border-box;">
+          <p style="font-size:12px;color:#9A93B8;margin:7px 0 0;line-height:1.6;">ご注文は20kgから承っております（例：20kgなら「20」）</p>
 
           <button type="button" data-calc style="width:100%;padding:16px;margin-top:22px;border:none;border-radius:14px;background:#32285B;color:#fff;font-size:16px;font-weight:900;font-family:inherit;cursor:pointer;letter-spacing:.05em;box-shadow:0 4px 0 #E3E0EF;">金額を確認する</button>
           <div data-error style="display:none;color:#C0392B;font-size:13px;font-weight:700;margin-top:12px;line-height:1.6;"></div>
@@ -286,7 +286,7 @@ class Component extends DCLogic {
     const priceList = root.querySelector('[data-pricelist]');
     const seasonEl = root.querySelector('[data-season]');
     const qtyInput = root.querySelector('[data-qty]');
-    if (!qtyInput.value) qtyInput.value = '5';
+    if (!qtyInput.value) qtyInput.value = '20';
     const calcBtn = root.querySelector('[data-calc]');
     const errEl = root.querySelector('[data-error]');
     const out = {
@@ -351,7 +351,7 @@ class Component extends DCLogic {
       const variety = varSel.value;
       const grade = gradeSel.value;
       const kg = parseFloat(qtyInput.value);
-      if (!kg || kg <= 0) { showErr('数量は1kg以上で入力してください。'); return; }
+      if (!kg || kg < 20) { showErr('ご注文は20kg以上で入力してください。'); return; }
       let unitPer5kg;
       if (grade === '訳あり' || grade === '切') unitPer5kg = priceTable[variety][grade];
       else unitPer5kg = priceTable[variety][grade][sizeSel.value];
