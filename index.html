@@ -127,21 +127,11 @@
     [data-sim]{max-width:100%!important;}
     [data-fy-fab]{width:46px!important;height:46px!important;}
     [data-fy-vprev],[data-fy-vnext],[data-fy-vdots]{display:none!important;}
+    [data-proc-banner]{padding:22px 20px!important;border-radius:18px!important;gap:16px!important;}
+    [data-proc-banner] p[style*="font-size:21px"]{font-size:17px!important;}
+    [data-proc-banner] span[style*="padding:14px 30px"]{width:100%!important;text-align:center!important;box-sizing:border-box!important;}
     /* CTA heading */
     [style*="padding:96px"] h2,[style*="padding: 96px"] h2{font-size:18px!important;line-height:1.6!important;}
-    /* IMPERFECT（B品・訳あり品）セクション */
-    #imperfect{padding-top:44px!important;padding-bottom:44px!important;}
-    #imperfect [data-imp-grid]{grid-template-columns:1fr!important;gap:16px!important;margin-top:26px!important;}
-    #imperfect [data-imp-photo]{min-height:0!important;aspect-ratio:4/5;border-radius:18px!important;}
-    #imperfect [data-imp-card]{padding:24px 20px!important;border-radius:18px!important;}
-    #imperfect [data-imp-card] h3{line-height:1.55!important;margin-bottom:12px!important;}
-    #imperfect [data-imp-price]{padding:16px 18px!important;border-radius:14px!important;}
-    #imperfect [data-imp-price] span[style*="font-size:26px"]{font-size:22px!important;}
-    #imperfect [data-imp-price] span[style*="min-width:74px"]{min-width:0!important;}
-    #imperfect [data-imp-price] > div{row-gap:2px!important;}
-    #imperfect [data-imp-price] > div > span:last-child{flex:0 0 100%!important;font-size:12px!important;color:#7C8A75!important;}
-    #imperfect [data-imp-actions]{flex-direction:column!important;gap:10px!important;}
-    #imperfect [data-imp-actions] a{width:100%!important;text-align:center!important;box-sizing:border-box!important;}
   }
       /* fy-wide (大画面での全幅表示に合わせた拡大調整) */
   @media (min-width:1280px){
@@ -197,7 +187,7 @@
       <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid #E7E4F0;">
         <a href="/" style="display:flex;align-items:center;text-decoration:none;"><img src="assets/logo.png" alt="FARM YASHIRO" style="height:34px;"></a>
         <div style="display:flex;gap:26px;font-size:14px;font-weight:700;">
-          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><a href="/simulation/" style="color:#33402F;text-decoration:none;">見積もりシミュレーション</a><a href="/qa/" style="color:#33402F;text-decoration:none;">Q&amp;A</a><a href="/recruit/" style="color:#32285B;text-decoration:none;font-weight:700;">採用情報</a>
+          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><a href="/simulation/" style="color:#33402F;text-decoration:none;">見積もりシミュレーション</a><a href="/processing/" style="color:#33402F;text-decoration:none;">加工用さつまいも</a><a href="/qa/" style="color:#33402F;text-decoration:none;">Q&amp;A</a><a href="/recruit/" style="color:#32285B;text-decoration:none;font-weight:700;">採用情報</a>
         </div>
         <input type="checkbox" id="fyMenu" style="display:none;">
         <div style="display:flex;align-items:center;gap:10px;">
@@ -209,7 +199,7 @@
           <a href="/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">TOP</a>
           <a href="/#steps" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">こだわり</a>
           <a href="/about-farm/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">農園について</a>
-          <a href="/simulation/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">見積もりシミュレーション</a>
+          <a href="/simulation/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">見積もりシミュレーション</a><a href="/processing/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">加工用さつまいも</a>
           <a href="/qa/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">Q&amp;A</a>
           <a href="/recruit/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">採用情報</a>
           <a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="margin-top:16px;background:#F7E034;color:#32285B;padding:14px 38px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;">オンラインストア</a>
@@ -563,38 +553,15 @@
         </div>
       </div>
 
-      <div id="imperfect" style="background:#fff;padding:72px 56px;border-top:1px solid #ECE9F3;scroll-margin-top:80px;">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#32285B;display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:34px;height:3px;background:#32285B;border-radius:3px;"></span>IMPERFECT</div>
-        <h2 style="font-size:40px;font-weight:900;line-height:1.35;margin:0 0 16px;">不揃いだけど、味は<span>そのまま</span>。<br>B品・訳あり品、あります</h2>
-        <p style="font-size:15px;color:#7C8A75;line-height:1.9;font-weight:500;max-width:640px;margin:0;">形が曲がっていたり、大きさが不揃いだったり、表面に少し傷やくぼみがあるもの。見た目の理由で規格から外れた「B品」「訳あり品」を、お手頃な価格でお分けしています。見た目以外はA品と同じ、同じ畑で同じ日に掘ったさつまいもです。</p>
-
-        <div data-imp-grid="" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:44px;align-items:stretch;">
-          <div data-imp-photo="" style="position:relative;border-radius:28px;overflow:hidden;min-height:320px;background:#F5F4F9;">
-            <img src="assets/photos/imperfect-crates.jpg" alt="コンテナに並んだ規格外のさつまいも" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+      <div style="padding:0 56px 72px;">
+        <a href="/processing/" data-proc-banner="" style="display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;background:#F9F9F9;border:1px solid #E7E4F0;border-radius:26px;padding:30px 34px;text-decoration:none;">
+          <div style="flex:1;min-width:260px;">
+            <span style="display:inline-block;background:#F7E034;color:#33402F;font-weight:900;font-size:11px;padding:5px 15px;border-radius:999px;margin-bottom:12px;letter-spacing:.1em;">FOR PROCESSING</span>
+            <p style="font-size:21px;font-weight:900;line-height:1.6;margin:0 0 8px;color:#33402F;">お菓子・パンの仕込みに。<br>加工用のB品・訳あり品もお分けしています</p>
+            <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0;">5kg ¥1,000〜（税別・送料別）／訳あり品のため、数量には限りがございます。</p>
           </div>
-          <div data-imp-card="" style="background:#F9F9F9;border-radius:28px;padding:42px 36px;">
-            <span style="display:inline-block;background:#F7E034;color:#33402F;font-weight:900;font-size:12px;padding:6px 18px;border-radius:999px;margin-bottom:20px;letter-spacing:.1em;">FOR PATISSERIE &amp; BAKERY</span>
-            <h3 style="font-size:24px;font-weight:900;margin:0 0 14px;line-height:1.6;">お菓子屋さん・パン屋さんの<br>仕込みに使ってほしい。</h3>
-            <p style="font-size:14px;color:#7C8A75;line-height:2;font-weight:500;margin:0 0 22px;">スイートポテト、モンブラン、芋ようかん、あんこ、スイートポテトパン、プリン、ジェラート。皮をむいて、裏ごしして、ペーストにしてしまう工程なら、芋の見た目は仕上がりに関係ありません。それなら、浮いた分は素材の量や品質にまわしてほしい。そう考えて、B品・訳あり品をお分けしています。</p>
-            <div data-imp-price="" style="background:#fff;border:1px solid #E7E4F0;border-radius:18px;padding:18px 22px;margin-bottom:22px;">
-              <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding-bottom:12px;border-bottom:1px dashed #E7E4F0;">
-                <span style="font-size:13px;font-weight:900;color:#32285B;min-width:74px;">B品</span>
-                <span style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#32285B;">¥2,000</span>
-                <span style="font-size:13px;font-weight:700;color:#33402F;">/ 5kg（L・M／税別・送料別）</span>
-              </div>
-              <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding-top:12px;">
-                <span style="font-size:13px;font-weight:900;color:#32285B;min-width:74px;">訳あり品</span>
-                <span style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#32285B;">¥1,000</span>
-                <span style="font-size:13px;font-weight:700;color:#33402F;">/ 5kg（税別・送料別）</span>
-              </div>
-              <p style="font-size:12px;color:#9A93B8;margin:12px 0 0;line-height:1.7;">べにはるか・シルクスイート ともに同価格<br>※ 訳あり品のため、数量には限りがございます。</p>
-            </div>
-            <div data-imp-actions="" style="display:flex;gap:10px;flex-wrap:wrap;">
-              <a href="/simulation/" style="display:inline-block;background:#32285B;color:#fff;font-weight:700;font-size:14px;padding:14px 30px;border-radius:999px;text-decoration:none;">金額をシミュレーションする →</a>
-              <a href="https://forms.gle/EjTF8Bzc1LbZgEicA" target="_blank" rel="noopener" style="display:inline-block;background:#fff;border:2px solid #32285B;color:#32285B;font-weight:700;font-size:14px;padding:12px 28px;border-radius:999px;text-decoration:none;">相談する →</a>
-            </div>
-          </div>
-        </div>
+          <span style="display:inline-block;background:#32285B;color:#fff;font-weight:700;font-size:14px;padding:14px 30px;border-radius:999px;white-space:nowrap;">加工用さつまいものご案内 →</span>
+        </a>
       </div>
 
       <div style="position:relative;color:#fff;text-align:center;padding:96px 56px;overflow:hidden;">
@@ -630,7 +597,7 @@
               <a href="/" style="color:#33402F;text-decoration:none;">TOP</a>
               <a href="#steps" style="color:#33402F;text-decoration:none;">こだわり</a>
               <a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a>
-              <a href="/simulation/" style="color:#33402F;text-decoration:none;">見積もりシミュレーション</a>
+              <a href="/simulation/" style="color:#33402F;text-decoration:none;">見積もりシミュレーション</a><a href="/processing/" style="color:#33402F;text-decoration:none;">加工用さつまいも</a>
               <a href="/qa/" style="color:#33402F;text-decoration:none;">Q&amp;A</a>
               <a href="/recruit/" style="color:#33402F;text-decoration:none;">採用情報</a>
             </div>
