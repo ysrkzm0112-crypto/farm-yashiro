@@ -127,7 +127,7 @@
       <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid #E7E4F0;">
         <a href="/" style="display:flex;align-items:center;text-decoration:none;"><img src="../assets/logo.png" alt="FARM YASHIRO" style="height:34px;"></a>
         <div style="display:flex;gap:26px;font-size:14px;font-weight:700;">
-          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="/#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><span style="color:#32285B;font-weight:700;">見積もりシュミレーション</span><a href="/processing/" style="color:#33402F;text-decoration:none;">加工用さつまいも</a><a href="/qa/" style="color:#33402F;text-decoration:none;">Q&amp;A</a><a href="/recruit/" style="color:#33402F;text-decoration:none;">採用情報</a>
+          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="/#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><span style="color:#32285B;font-weight:700;">見積もりシュミレーション</span><a href="/processing/" style="color:#33402F;text-decoration:none;">加工向けさつまいも</a><a href="/qa/" style="color:#33402F;text-decoration:none;">Q&amp;A</a><a href="/recruit/" style="color:#33402F;text-decoration:none;">採用情報</a>
         </div>
         <input type="checkbox" id="fyMenu" style="display:none;">
         <div style="display:flex;align-items:center;gap:10px;">
@@ -139,7 +139,7 @@
           <a href="/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">TOP</a>
           <a href="/#steps" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">こだわり</a>
           <a href="/about-farm/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">農園について</a>
-          <a href="/simulation/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">見積もりシミュレーション</a><a href="/processing/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">加工用さつまいも</a>
+          <a href="/simulation/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">見積もりシミュレーション</a><a href="/processing/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">加工向けさつまいも</a>
           <a href="/qa/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">Q&amp;A</a>
           <a href="/recruit/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">採用情報</a>
           <a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="margin-top:16px;background:#F7E034;color:#32285B;padding:14px 38px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;">オンラインストア</a>
@@ -176,8 +176,8 @@
           </div>
 
           <label style="display:block;font-size:13px;font-weight:700;margin:0 0 7px;">数量（kg）</label>
-          <input data-qty type="number" min="20" step="1" inputmode="numeric" style="width:100%;padding:11px 13px;border-radius:11px;border:1px solid #E7E4F0;background:#F9F9F9;color:#33402F;font-size:15px;font-family:inherit;box-sizing:border-box;">
-          <p style="font-size:12px;color:#9A93B8;margin:7px 0 0;line-height:1.6;">ご注文は20kgから承っております（例：20kgなら「20」）</p>
+          <input data-qty type="number" min="5" step="1" inputmode="numeric" style="width:100%;padding:11px 13px;border-radius:11px;border:1px solid #E7E4F0;background:#F9F9F9;color:#33402F;font-size:15px;font-family:inherit;box-sizing:border-box;">
+          <p data-qtynote style="font-size:12px;color:#9A93B8;margin:7px 0 0;line-height:1.6;">ご注文は20kgから承っております（例：20kgなら「20」）</p>
 
           <button type="button" data-calc style="width:100%;padding:16px;margin-top:22px;border:none;border-radius:14px;background:#32285B;color:#fff;font-size:16px;font-weight:900;font-family:inherit;cursor:pointer;letter-spacing:.05em;box-shadow:0 4px 0 #E3E0EF;">金額を確認する</button>
           <div data-error style="display:none;color:#C0392B;font-size:13px;font-weight:700;margin-top:12px;line-height:1.6;"></div>
@@ -289,6 +289,7 @@ class Component extends DCLogic {
     const gradeNote = root.querySelector('[data-gradenote]');
     const seasonEl = root.querySelector('[data-season]');
     const qtyInput = root.querySelector('[data-qty]');
+    const qtyNote = root.querySelector('[data-qtynote]');
     if (!qtyInput.value) qtyInput.value = '20';
     const calcBtn = root.querySelector('[data-calc]');
     const errEl = root.querySelector('[data-error]');
@@ -327,6 +328,12 @@ class Component extends DCLogic {
       "訳あり": "訳あり品のため、数量には限りがございます。",
       "切": "カット品のため、数量には限りがございます。"
     };
+    const minKg = () => (gradeSel.value === '訳あり' ? 5 : 20);
+    const updateMinQty = () => {
+      const m = minKg();
+      qtyInput.min = String(m);
+      if (qtyNote) qtyNote.textContent = 'ご注文は' + m + 'kgから承っております（例：' + m + 'kgなら「' + m + '」）';
+    };
     const updateGradeNote = () => {
       const g = gradeSel.value;
       const variety = varSel.value;
@@ -342,6 +349,7 @@ class Component extends DCLogic {
     const updateSizes = () => {
       const g = gradeSel.value;
       updateGradeNote();
+      updateMinQty();
       if (g === '訳あり' || g === '切') { sizeWrap.style.display = 'none'; priceList.innerHTML = ''; return; }
       sizeWrap.style.display = 'block';
       sizeSel.innerHTML = '';
@@ -371,7 +379,8 @@ class Component extends DCLogic {
       const variety = varSel.value;
       const grade = gradeSel.value;
       const kg = parseFloat(qtyInput.value);
-      if (!kg || kg < 20) { showErr('ご注文は20kg以上で入力してください。'); return; }
+      const min = minKg();
+      if (!kg || kg < min) { showErr('ご注文は' + min + 'kg以上で入力してください。'); return; }
       let unitPer5kg;
       if (grade === '訳あり' || grade === '切') unitPer5kg = priceTable[variety][grade];
       else unitPer5kg = priceTable[variety][grade][sizeSel.value];
