@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>FARM YASHIRO パレット記録</title>
+<style>
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+       background:#f7f6f2;color:#2e5a3e;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:24px}
+  .box{text-align:center;max-width:420px}
+  .pid{font-size:40px;font-weight:700;letter-spacing:.04em;margin:8px 0 4px}
+  .msg{font-size:15px;color:#5b6b60;margin:0 0 20px}
+  a.btn{display:block;margin:10px 0;padding:16px;border-radius:10px;background:#2e5a3e;color:#fff;
+        text-decoration:none;font-size:17px;font-weight:600}
+  a.btn.s{background:#cd6916}
+  .err{color:#b00020;font-size:15px}
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="pid" id="pid"></div>
+  <p class="msg" id="msg">フォームを開いています…</p>
+  <div id="fallback" hidden>
+    <a class="btn" id="lh" href="#">① 収穫を記録する</a>
+    <a class="btn s" id="ls" href="#">② 選別・出荷を記録する</a>
+  </div>
+</div>
+<script>
+(function () {
+  var FORMS = {
+    h: { base: 'https://docs.google.com/forms/d/e/1FAIpQLSfwRe9DufbORk9ZbuNuEEy3rhx5bzLFw2Qp3QwRcb3LoH8ewg/viewform',
+         pallet: 'entry.1004641121', date: 'entry.620697600' },
+    s: { base: 'https://docs.google.com/forms/d/e/1FAIpQLSdDrMoaqQw8yXLIQXQtK0QaWBHV126h56VV7VbmBbobUA8JmA/viewform',
+         pallet: 'entry.412758200',  date: 'entry.142436748' }
+  };
+  function build(kind, id) {
+    var f = FORMS[kind], d = new Date();
+    return f.base + '?usp=pp_url'
+      + '&' + f.pallet + '=' + encodeURIComponent(id)
+      + '&' + f.date + '_year='  + d.getFullYear()
+      + '&' + f.date + '_month=' + (d.getMonth() + 1)
+      + '&' + f.date + '_day='   + d.getDate();
+  }
+  var q = new URLSearchParams(location.search);
+  var id = (q.get('id') || '').trim();
+  var t  = (q.get('t') || '').trim().toLowerCase();
+
+  document.getElementById('pid').textContent = id ? 'パレット ' + id : '';
+
+  if (!id) {
+    document.getElementById('msg').className = 'err';
+    document.getElementById('msg').textContent = 'パレット番号が読み取れませんでした。用紙のQRをもう一度読み込んでください。';
+    return;
+  }
+  document.getElementById('lh').href = build('h', id);
+  document.getElementById('ls').href = build('s', id);
+
+  if (t === 'h' || t === 's') {
+    location.replace(build(t, id));
+    // 遷移が始まらない場合の保険
+    setTimeout(function () {
+      document.getElementById('msg').textContent = '自動で開かない場合は下のボタンを押してください。';
+      document.getElementById('fallback').hidden = false;
+    }, 2500);
+  } else {
+    document.getElementById('msg').textContent = 'どちらを記録しますか？';
+    document.getElementById('fallback').hidden = false;
+  }
+})();
+</script>
+<noscript>
+  <p class="err">このページはJavaScriptが必要です。ブラウザで開き直してください。</p>
+</noscript>
+</body>
+</html>
