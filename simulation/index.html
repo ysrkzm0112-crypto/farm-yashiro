@@ -315,10 +315,9 @@ class Component extends DCLogic {
       const g = gradeSel.value;
       if (g === '訳あり' || g === '切') return;
       sizeOptions[g].forEach(s => {
-        const price = priceTable[variety][g][s];
         const active = s === sizeSel.value;
         const chip = document.createElement('span');
-        chip.textContent = s + ' ¥' + price.toLocaleString('ja-JP') + '/5kg';
+        chip.textContent = s;
         chip.style.cssText = 'display:inline-block;font-size:12px;font-weight:700;padding:7px 13px;border-radius:999px;cursor:pointer;transition:all .15s;border:1.5px solid ' + (active ? '#32285B' : '#E7E4F0') + ';background:' + (active ? '#32285B' : '#fff') + ';color:' + (active ? '#fff' : '#5B6656') + ';';
         chip.addEventListener('click', () => { sizeSel.value = s; renderChips(); });
         priceList.appendChild(chip);
@@ -338,8 +337,7 @@ class Component extends DCLogic {
       const g = gradeSel.value;
       const variety = varSel.value;
       if (gradeNotes[g]) {
-        const p = priceTable[variety][g];
-        gradeNote.textContent = g + '　¥' + p.toLocaleString('ja-JP') + '/5kg（税別）　' + gradeNotes[g];
+        gradeNote.textContent = gradeNotes[g];
         gradeNote.style.display = 'block';
       } else {
         gradeNote.textContent = '';
