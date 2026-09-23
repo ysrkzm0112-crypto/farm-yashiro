@@ -217,10 +217,17 @@
 
   /* 差し替え写真は風景なので、旧・切り抜き芋用の位置調整を打ち消す */
   @media (max-width:768px){
-    [data-hero-img]{object-fit:cover!important;object-position:center 48%!important;transform:none!important;}
+    [data-hero-img]{object-fit:cover!important;object-position:center 58%!important;transform:none!important;}
   }
 
-  /* ヒーロー：画像には何も重ねず、文字側だけで読ませる */
+  /* ヒーロー：受賞写真（白い表彰状・黄色いコンテナ）は明るく、白と黄の文字が沈む。
+     文字側だけでは読めないため、見出し側にだけ暗さを足すスクリムを1枚敷く。 */
+  [data-hero]::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(96deg,rgba(26,20,52,.72) 0%,rgba(26,20,52,.60) 26%,rgba(26,20,52,.30) 52%,rgba(26,20,52,.06) 72%,rgba(26,20,52,0) 84%);}
+  @media (max-width:768px){
+    /* スマホは見出しが横いっぱいに広がるため、中央の帯を暗くする */
+    [data-hero]::after{background:linear-gradient(180deg,rgba(26,20,52,.10) 0%,rgba(26,20,52,.30) 24%,rgba(26,20,52,.62) 46%,rgba(26,20,52,.58) 68%,rgba(26,20,52,.14) 92%,rgba(26,20,52,0) 100%)!important;}
+  }
   .hero-copy h1{text-shadow:0 2px 18px rgba(0,0,0,.55),0 1px 4px rgba(0,0,0,.45);}
   .hero-cta a[style*="transparent"]{background:rgba(20,16,40,.55)!important;backdrop-filter:blur(2px);}
 </style>
@@ -264,7 +271,7 @@
       </div>
 
       <div data-hero-wrap><div data-hero style="position:relative;width:100%;height:560px;background:#000;overflow:hidden;">
-        <img data-hero-img src="assets/photos/hero-sprouts-web.jpg" alt="マルチを張った畑に並ぶさつまいもの苗" style="width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block;background:#000;">
+        <img data-hero-img src="assets/photos/hero-award-web.jpg" alt="受賞の表彰状とトロフィー、さつまいもを詰めた黄色いコンテナの前に積まれたFARM YASHIROの出荷用段ボール箱" style="width:100%;height:100%;object-fit:cover;object-position:center 65%;display:block;background:#000;">
         <img src="assets/awards/gold-medal-trans.png" alt="最高金賞" style="position:absolute;top:30px;right:40px;width:104px;z-index:2;filter:drop-shadow(0 8px 16px rgba(0,0,0,.5));">
         <img src="assets/awards/farmers-of-year-trans.png" alt="FARMERS OF THE YEAR" style="position:absolute;top:44px;right:158px;width:92px;z-index:2;filter:drop-shadow(0 8px 16px rgba(0,0,0,.5));">
         <div class="hero-copy" style="position:absolute;top:50%;transform:translateY(-50%);z-index:2;">
