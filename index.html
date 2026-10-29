@@ -238,7 +238,8 @@
   [data-tophero-line]{display:block;width:56px;height:3px;background:#F7E034;border-radius:3px;margin-bottom:36px;}
   [data-tophero-copy] h1{font-size:52px;line-height:1.5;margin-bottom:44px!important;}
   [data-tophero-photo]{position:relative;overflow:hidden;}
-  [data-tophero-photo] img{position:absolute;inset:0 0 -2px 0;width:100%;height:calc(100% + 2px);object-fit:cover;object-position:50% 20%;display:block;}
+  [data-tophero-photo] img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:82%;width:auto;max-width:none;max-height:1000px;display:block;}
+  [data-topintro] br.sp{display:none;}
   [data-topintro]{position:relative;z-index:1;padding:96px var(--gut) 40px;}
   [data-topintro] p{word-break:keep-all;overflow-wrap:break-word;font-size:24px;font-weight:700;line-height:1.9;color:#33402F;max-width:760px;margin:0 0 32px;letter-spacing:.04em;}
   [data-hdr-dark] a[href="/"] img{height:30px!important;}
@@ -248,13 +249,14 @@
   }
   @media (max-width:768px){
     [data-tophero]{grid-template-columns:1fr;min-height:0;}
-    [data-tophero-photo]{order:-1;height:400px;}
-    [data-tophero-photo] img{object-position:50% 10%;}
+    [data-tophero-photo]{order:-1;height:380px;}
+    [data-tophero-photo] img{height:80%;}
     [data-tophero-copy]{padding:8px var(--gut) 72px;}
     [data-tophero-line]{margin-bottom:26px;}
     [data-tophero-copy] h1{font-size:30px;margin-bottom:32px!important;}
     [data-topintro]{padding:64px var(--gut) 24px;}
     [data-topintro] p{font-size:18px;word-break:normal;}
+    [data-topintro] br.sp{display:inline;}
     [data-hdr-dark] a[href="/"] img{height:22px!important;}
   }
 </style>
@@ -308,7 +310,7 @@
       </div>
 
       <div data-topintro>
-        <p>千葉県香取市で80年続く、さつまいも認定農家です。専用の貯蔵庫で温度と湿度を24時間管理し、甘みが増すまで熟成させてから出荷しています。</p>
+        <p>FARM&nbsp;YASHIROは<br class="sp">千葉県香取市で80年続く、<br class="sp">さつまいも認定農家です。<br class="sp">専用の貯蔵庫で温度と湿度を<br class="sp">24時間管理し、甘みが増すまで<br class="sp">熟成させてから出荷しています。</p>
         <a href="/about-farm/" style="display:inline-block;background:#32285B;color:#fff;font-weight:700;font-size:14px;padding:14px 30px;border-radius:999px;text-decoration:none;">農園について →</a>
       </div>
 
