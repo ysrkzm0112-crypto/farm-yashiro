@@ -123,6 +123,9 @@
     [style*="font-size:14px"],[style*="font-size: 14px"]{font-size:16px!important;}
     [style*="font-size:13px"],[style*="font-size: 13px"]{font-size:14.5px!important;}
   }
+
+  /* 文節で折り返す（2026-10-29） */
+  body{word-break:keep-all;overflow-wrap:break-word;}
 </style>
 </helmet>
 <section data-fy-root="" style="background:#F9F9F9;font-family:'Zen Kaku Gothic New',sans-serif;">
@@ -143,7 +146,7 @@
       <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid #E7E4F0;">
         <a href="/" style="display:flex;align-items:center;text-decoration:none;"><img src="../assets/logo.png" alt="FARM YASHIRO" style="height:34px;"></a>
         <div style="display:flex;gap:26px;font-size:14px;font-weight:700;">
-          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="/#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><a href="/simulation/" style="color:#33402F;text-decoration:none;">見積もりシミュレーション</a><a href="/processing/" style="color:#33402F;text-decoration:none;">加工向けさつまいも</a><a href="/qa/" style="color:#33402F;text-decoration:none;">Q&amp;A</a><span style="color:#32285B;font-weight:700;">採用情報</span>
+          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="/#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><a href="/simulation/" style="color:#33402F;text-decoration:none;">見積もり<wbr>シミュレーション</a><a href="/processing/" style="color:#33402F;text-decoration:none;">加工向けさつまいも</a><a href="/qa/" style="color:#33402F;text-decoration:none;">Q&amp;A</a><span style="color:#32285B;font-weight:700;">採用情報</span>
         </div>
         <input type="checkbox" id="fyMenu" style="display:none;">
         <div style="display:flex;align-items:center;gap:10px;">
@@ -155,7 +158,7 @@
           <a href="/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">TOP</a>
           <a href="/#steps" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">こだわり</a>
           <a href="/about-farm/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">農園について</a>
-          <a href="/simulation/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">見積もりシミュレーション</a><a href="/processing/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">加工向けさつまいも</a>
+          <a href="/simulation/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">見積もり<wbr>シミュレーション</a><a href="/processing/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">加工向けさつまいも</a>
           <a href="/qa/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">Q&amp;A</a>
           <a href="/recruit/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">採用情報</a>
           <a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="margin-top:16px;background:#F7E034;color:#32285B;padding:14px 38px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;">オンラインストア</a>
@@ -166,9 +169,7 @@
         <img src="../assets/photos/harvest-dig.jpg" alt="FARM YASHIRO の収穫" style="width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block;">
         <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.3) 40%,rgba(0,0,0,.05) 70%);"></div>
         <div style="position:absolute;left:56px;top:50%;transform:translateY(-50%);max-width:600px;z-index:2;">
-          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#F7E034;margin-bottom:16px;">RECRUIT / 採用情報</div>
           <h1 style="font-size:52px;font-weight:900;line-height:1.32;letter-spacing:-.02em;margin:0 0 18px;color:#fff;">一緒に働く<br>仲間を<span style="color:#F7E034;">募集</span>しています！</h1>
-          <p style="font-size:15px;color:rgba(255,255,255,.88);line-height:1.9;font-weight:500;max-width:440px;margin:0;">FARM YASHIRO では、スタッフを募集しています。短期・長期を問わず、一緒に美味しいさつまいもをつくる方をお待ちしています。</p>
         </div>
       </div>
 
@@ -177,53 +178,44 @@
           <img src="../assets/oimo-yellow.png" alt="" style="position:absolute;top:-34px;left:-12px;width:92px;opacity:.5;transform:rotate(-18deg);pointer-events:none;z-index:2;">
           <div style="position:relative;width:60%;aspect-ratio:4/3;border-radius:40px 40px 40px 12px;overflow:hidden;transform:rotate(-4deg);box-shadow:0 32px 62px -34px rgba(50,40,91,.55);">
             <img src="../assets/photos/tractor-mulch.jpg" alt="植付け" style="width:100%;height:100%;object-fit:cover;object-position:center 85%;display:block;">
-            <span style="position:absolute;left:22px;bottom:18px;color:#fff;font-size:18px;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.55);">植付け</span>
           </div>
           <div style="position:absolute;right:-40px;bottom:-28px;width:45%;aspect-ratio:3/4;border-radius:12px 40px 40px 40px;overflow:hidden;transform:rotate(4.5deg);border:7px solid #F9F9F9;box-shadow:0 26px 50px -30px rgba(50,40,91,.5);">
             <img src="../assets/photos/harvest-dig.jpg" alt="収穫" style="width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block;">
-            <span style="position:absolute;left:16px;bottom:14px;color:#fff;font-size:16px;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.6);">収穫</span>
           </div>
         </div>
       </div>
 
       <div data-fy-reveal="" style="position:relative;z-index:1;padding:64px 56px 24px;">
         <h2 style="font-size:38px;font-weight:900;line-height:1.35;margin:0 0 12px;">募集要項</h2>
-        <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0;max-width:620px;">「さつまいもが好き」「農業に挑戦してみたい」「将来、農家を目指したい」——そんな方を歓迎します。</p>
       </div>
 
       <div data-fy-reveal="" style="position:relative;z-index:1;padding:0 56px 24px;">
         <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
           <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:28px 32px;box-shadow:0 12px 28px -20px rgba(50,40,91,.3);">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;color:#32285B;margin-bottom:8px;">EMPLOYMENT</div>
             <div style="font-size:17px;font-weight:900;margin-bottom:6px;">雇用形態</div>
             <p style="font-size:14px;color:#5B6656;line-height:1.85;font-weight:500;margin:0;">アルバイト・パート<br><span style="font-size:12px;color:#7C8A75;">※社員登用あり</span></p>
           </div>
           <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:28px 32px;box-shadow:0 12px 28px -20px rgba(50,40,91,.3);">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;color:#32285B;margin-bottom:8px;">WORK</div>
             <div style="font-size:17px;font-weight:900;margin-bottom:6px;">仕事内容</div>
-            <p style="font-size:14px;color:#5B6656;line-height:1.85;font-weight:500;margin:0;">さつまいもの植付け・収穫・選別・箱詰め など農作業全般</p>
+            <p style="font-size:14px;color:#5B6656;line-height:1.85;font-weight:500;margin:0;">さつまいもの<wbr>植付け<wbr>・<wbr>収穫・<wbr>選別・<wbr>箱詰め など<wbr>農作業全般</p>
           </div>
           <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:28px 32px;box-shadow:0 12px 28px -20px rgba(50,40,91,.3);">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;color:#32285B;margin-bottom:8px;">HOURS</div>
             <div style="font-size:17px;font-weight:900;margin-bottom:6px;">勤務時間</div>
-            <p style="font-size:14px;color:#5B6656;line-height:1.85;font-weight:500;margin:0;">8:00〜17:00<br><span style="font-size:12px;color:#7C8A75;">※残業基本なし（繁忙期に30分ほどお願いする場合があります）</span></p>
+            <p style="font-size:14px;color:#5B6656;line-height:1.85;font-weight:500;margin:0;">8:00〜17:00<br><span style="font-size:12px;color:#7C8A75;">※残業基本なし<wbr>（繁忙期に<wbr>30分ほど<wbr>お願いする<wbr>場合があります）</span></p>
           </div>
           <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:28px 32px;box-shadow:0 12px 28px -20px rgba(50,40,91,.3);">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;color:#32285B;margin-bottom:8px;">DAYS</div>
             <div style="font-size:17px;font-weight:900;margin-bottom:6px;">勤務日数</div>
-            <p style="font-size:14px;color:#5B6656;line-height:1.85;font-weight:500;margin:0;">週休2日制<br>収穫期や繁忙期によって異なります<br><span style="font-size: 12px; color: rgb(124, 138, 117);">※応相談</span></p>
+            <p style="font-size:14px;color:#5B6656;line-height:1.85;font-weight:500;margin:0;">週休2日制<br>収穫期や<wbr>繁忙期によって<wbr>異なります<br><span style="font-size: 12px; color: rgb(124, 138, 117);">※応相談</span></p>
           </div>
           <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:28px 32px;box-shadow:0 12px 28px -20px rgba(50,40,91,.3);">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;color:#32285B;margin-bottom:8px;">SALARY</div>
             <div style="font-size:17px;font-weight:900;margin-bottom:6px;">給与</div>
             <p style="font-size:14px;color:#5B6656;line-height:1.85;font-weight:500;margin:0;">時給制 1,140円(昇給あり)<br></p>
           </div>
           <div style="background:#32285B;border:1px solid #32285B;border-radius:22px;padding:28px 32px;box-shadow:0 12px 28px -20px rgba(50,40,91,.4);">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;color:#F7E034;margin-bottom:8px;">REQUIREMENTS</div>
             <div style="font-size:17px;font-weight:900;margin-bottom:10px;color:#fff;">応募資格</div>
             <ul style="margin:0;padding-left:18px;font-size:14px;color:rgba(255,255,255,.9);line-height:1.9;font-weight:500;">
-              <li>普通自動車運転免許 必須（できればMT所持）</li>
-              <li>フォークリフト免許をお持ちの方優遇</li>
+              <li>普通自動車運転免許 必須（できれば<wbr>MT所持）</li>
+              <li>フォークリフト<wbr>免許を<wbr>お持ちの<wbr>方優遇</li>
               <li>学歴不問／未経験歓迎</li>
             </ul>
           </div>
@@ -235,35 +227,32 @@
           <img src="../assets/oimo-purple.png" alt="" style="position:absolute;top:-30px;right:-6px;width:84px;opacity:.4;transform:rotate(14deg);pointer-events:none;z-index:2;">
           <div style="position:relative;margin-left:auto;width:60%;aspect-ratio:4/3;border-radius:40px 40px 12px 40px;overflow:hidden;transform:rotate(4deg);box-shadow:0 32px 62px -34px rgba(50,40,91,.55);">
             <img src="../assets/photos/sorting-hands.jpg" alt="選別" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;">
-            <span style="position:absolute;right:22px;bottom:18px;color:#fff;font-size:18px;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.55);">選別</span>
           </div>
           <div style="position:absolute;left:-40px;bottom:-28px;width:45%;aspect-ratio:3/4;border-radius:40px 12px 40px 40px;overflow:hidden;transform:rotate(-4.5deg);border:7px solid #F9F9F9;box-shadow:0 26px 50px -30px rgba(50,40,91,.5);">
             <img src="../assets/photos/boxes-web.jpg" alt="箱詰め" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block;">
-            <span style="position:absolute;left:16px;bottom:14px;color:#fff;font-size:16px;font-weight:900;text-shadow:0 2px 10px rgba(0,0,0,.6);">箱詰め</span>
           </div>
         </div>
       </div>
 
       <div data-fy-reveal="" style="position:relative;z-index:1;padding:48px 56px 24px;">
         <div style="background:#F7E034;border-radius:28px;padding:52px 48px;">
-          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:16px;">WELCOME</div>
-          <p style="font-size:22px;font-weight:900;color:#32285B;line-height:1.75;margin:0 0 18px;">「さつまいもが好き」<br>「農業に挑戦してみたい」<br>「将来、農家を目指したい」</p>
-          <p style="font-size:16px;color:#33402F;line-height:1.95;font-weight:700;margin:0;">そんな方も大歓迎!!<br>FARM YASHIRO は、さつまいも品評会で多数の受賞歴があります。私たちと一緒に、さらに美味しいさつまいもづくりを目指しませんか？</p>
+          <p style="font-size:22px;font-weight:900;color:#32285B;line-height:1.75;margin:0 0 18px;">「さつまいもが<wbr>好き」<br>「農業に<wbr>挑戦してみたい」<br>「将来、農家を<wbr>目指したい」</p>
+          <p style="font-size:16px;color:#33402F;line-height:1.95;font-weight:700;margin:0;">そんな<wbr>方も<wbr>大歓迎!!<br>FARM YASHIRO は、さつまいも<wbr>品評会で<wbr>多数の<wbr>受賞歴があります。私たちと<wbr>一緒に、さらに<wbr>美味しいさつまいもづくりを<wbr>目指しませんか？</p>
         </div>
       </div>
 
       <div data-fy-reveal="" style="position:relative;z-index:1;padding:64px 56px 88px;">
         <div style="background:#fff;border:1px solid #E7E4F0;border-radius:28px;padding:56px 48px;text-align:center;box-shadow:0 20px 44px -30px rgba(50,40,91,.35);">
-          <h2 style="font-size:30px;font-weight:900;line-height:1.4;margin:0 0 12px;">ご興味のある方へ</h2>
-          <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0 0 24px;">短期・長期を問わず、一緒に働いていただける方を募集しています。<br>お問い合わせよりお気軽にご連絡ください。</p>
-          <div style="background:#FBF7E3;border:1.5px solid #F7E034;border-radius:20px;padding:22px 26px;text-align:left;display:flex;gap:16px;align-items:flex-start;max-width:760px;margin:0 auto 30px;">
+          <h2 style="font-size:30px;font-weight:900;line-height:1.4;margin:0 0 12px;">ご興味のある<wbr>方へ</h2>
+          <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0 0 24px;">短期・<wbr>長期を<wbr>問わず、一緒に<wbr>働いていただける<wbr>方を<wbr>募集しています。<br></p>
+          <div style="background:#FBF7E3;border:1.5px solid #F7E034;border-radius:20px;padding:22px 26px;text-align:left;display:flex;gap:16px;align-items:flex-start;max-width:900px;margin:0 auto 30px;">
             
             <div>
-              <p style="font-size:15px;font-weight:900;line-height:1.85;margin:0 0 6px;color:#33402F;">理想とのギャップを感じやすい職業でもございますため、実際に農園にてお仕事体験いただけます。</p>
-              <p style="font-size:12.5px;color:#9A93B8;font-weight:500;margin:0;">※観光としての作業体験ではございません。</p>
+              <p style="font-size:15px;font-weight:900;line-height:1.85;margin:0 0 6px;color:#33402F;">理想との<wbr>ギャップを<wbr>感じやすい<wbr>職業でもございますため、実際に<wbr>農園にて<wbr>お仕事体験いただけます。</p>
+              <p style="font-size:12.5px;color:#9A93B8;font-weight:500;margin:0;">※観光としての<wbr>作業体験ではございません。</p>
             </div>
           </div>
-          <a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="display:inline-block;background:#32285B;color:#fff;padding:16px 40px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 6px 0 #E3E0EF;">お問い合わせはこちら →</a>
+          <a href="https://forms.gle/EjTF8Bzc1LbZgEicA" target="_blank" rel="noopener" style="display:inline-block;background:#32285B;color:#fff;padding:16px 40px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 6px 0 #E3E0EF;">お問い<wbr>合わせはこちら →</a>
         </div>
       </div>
 

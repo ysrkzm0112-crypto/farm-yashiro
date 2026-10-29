@@ -133,6 +133,9 @@
     [style*="font-size:14px"],[style*="font-size: 14px"]{font-size:16px!important;}
     [style*="font-size:13px"],[style*="font-size: 13px"]{font-size:14.5px!important;}
   }
+
+  /* 文節で折り返す（2026-10-29） */
+  body{word-break:keep-all;overflow-wrap:break-word;}
 </style>
 </helmet>
 <section data-fy-root="" style="background:#F9F9F9;font-family:'Zen Kaku Gothic New',sans-serif;">
@@ -154,7 +157,7 @@
       <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid #E7E4F0;">
         <a href="/" style="display:flex;align-items:center;text-decoration:none;"><img src="../assets/logo.png" alt="FARM YASHIRO" style="height:34px;"></a>
         <div style="display:flex;gap:26px;font-size:14px;font-weight:700;">
-          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="/#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><a href="/simulation/" style="color:#33402F;text-decoration:none;">見積もりシミュレーション</a><a href="/processing/" style="color:#33402F;text-decoration:none;">加工向けさつまいも</a><span style="color:#32285B;font-weight:700;">Q&amp;A</span><a href="/recruit/" style="color:#33402F;text-decoration:none;">採用情報</a>
+          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="/#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><a href="/simulation/" style="color:#33402F;text-decoration:none;">見積もり<wbr>シミュレーション</a><a href="/processing/" style="color:#33402F;text-decoration:none;">加工向けさつまいも</a><span style="color:#32285B;font-weight:700;">Q&amp;A</span><a href="/recruit/" style="color:#33402F;text-decoration:none;">採用情報</a>
         </div>
         <input type="checkbox" id="fyMenu" style="display:none;">
         <div style="display:flex;align-items:center;gap:10px;">
@@ -166,7 +169,7 @@
           <a href="/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">TOP</a>
           <a href="/#steps" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">こだわり</a>
           <a href="/about-farm/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">農園について</a>
-          <a href="/simulation/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">見積もりシミュレーション</a><a href="/processing/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">加工向けさつまいも</a>
+          <a href="/simulation/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">見積もり<wbr>シミュレーション</a><a href="/processing/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">加工向けさつまいも</a>
           <a href="/qa/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">Q&amp;A</a>
           <a href="/recruit/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">採用情報</a>
           <a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="margin-top:16px;background:#F7E034;color:#32285B;padding:14px 38px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;">オンラインストア</a>
@@ -176,10 +179,9 @@
       <div style="position:relative;z-index:1;padding:72px 56px 8px;">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
           <div>
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#32285B;display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:34px;height:3px;background:#32285B;border-radius:3px;"></span>FOR PROCESSING</div>
-            <h1 style="font-size:40px;font-weight:900;line-height:1.4;margin:0 0 20px;">加工向けさつまいも<br>B品・訳あり品のご案内</h1>
-            <p style="font-size:15px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0 0 18px;">お菓子屋さん、パン屋さん、カフェ、焼き芋屋さんの仕込みに。見た目の理由で規格から外れたさつまいもを、お手頃な価格でお分けしています。</p>
-            <p style="font-size:15px;color:#7C8A75;line-height:2;font-weight:500;margin:0;"><b style="color:#33402F;">A品と比べて最大で58%お得。</b>仕入れを産地直送に切り替えるだけで、スイーツづくりの原価はここまで変わります。農家が畑から直接お届けするから、中間のコストがまるごと不要。浮いた分は、素材の量や品質、そして新しい一品の試作にまわせます。中身は同じ畑で、同じ日に掘った、同じさつまいもです。</p>
+            <h1 style="font-size:40px;font-weight:900;line-height:1.4;margin:0 0 20px;">加工向けさつまいも<br>B品・<wbr>訳あり<wbr>品の<wbr>ご案内</h1>
+            <p style="font-size:15px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0 0 18px;">お菓子屋さん、パン<wbr>屋さん、カフェ、焼き<wbr>芋屋さんの<wbr>仕込みに。見た<wbr>目の<wbr>理由で<wbr>規格から<wbr>外れたさつまいもを、お手頃な<wbr>価格で<wbr>お分けしています。</p>
+            <p style="font-size:15px;color:#7C8A75;line-height:2;font-weight:500;margin:0;"><b style="color:#33402F;">A品と<wbr>比べて<wbr>最大で<wbr>58%お得。</b>仕入れを<wbr>産地直送に<wbr>切り<wbr>替えるだけで、スイーツづくりの<wbr>原価はここまで<wbr>変わります。農家が<wbr>畑から<wbr>直接お届けするから、中間の<wbr>コストがまるごと<wbr>不要。浮いた<wbr>分は、素材の<wbr>量や<wbr>品質、そして<wbr>新しい<wbr>一品の<wbr>試作にまわせます。中身は<wbr>同じ<wbr>畑で、同じ<wbr>日に<wbr>掘った、同じさつまいもです。</p>
           </div>
           <div data-fy-slide="right" style="border-radius:32px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 24px 50px -30px rgba(50,40,91,.4);">
             <img src="../assets/photos/processing-sorting-web.jpg" alt="一本ずつ手で選別するようす" style="width:100%;height:100%;object-fit:cover;display:block;">
@@ -195,16 +197,12 @@
           <div data-imp-card="" style="background:#fff;border:1px solid #E7E4F0;border-radius:28px;padding:42px 36px;box-shadow:0 14px 32px -26px rgba(50,40,91,.35);">
             <div style="display:flex;gap:18px;align-items:flex-start;margin-bottom:16px;">
               <img src="../assets/awards/gold-medal-trans.png" alt="第2回焼き芋選手権 最高金賞" style="width:76px;height:auto;flex-shrink:0;">
-              <h3 style="font-size:24px;font-weight:900;margin:0;line-height:1.6;">形は悪くても、<br>味は評価されたそのままです。</h3>
+              <h3 style="font-size:24px;font-weight:900;margin:0;line-height:1.6;">形は悪くても、<br>味は評価された<wbr>そのままです。</h3>
             </div>
-            <p style="font-size:14px;color:#7C8A75;line-height:2;font-weight:500;margin:0 0 14px;">第2回焼き芋選手権 <b style="color:#33402F;">最高金賞</b>（シルクスイート）、野菜ソムリエサミット <b style="color:#33402F;">銀賞</b>（べにはるか）、さつまいも博 <b style="color:#33402F;">ファーマーズ・オブ・ザ・イヤー</b> 受賞。産地も品種も生産者も伏せたブラインド審査で、味そのものを評価いただきました。</p>
-            <p style="font-size:14px;color:#7C8A75;line-height:2;font-weight:500;margin:0 0 22px;">B品・訳あり品も、その芋とまったく同じ畑で、同じ日に掘り、同じ貯蔵庫で熟成させたものです。ちがうのは見た目だけ。<b style="color:#33402F;">受賞した芋と同じ味を、そのままお届けすることをお約束します。</b></p>
-            <div data-imp-price="" style="background:#F9F9F9;border-radius:18px;padding:20px 22px;margin-bottom:22px;">
-              <p style="font-size:14px;font-weight:900;color:#32285B;margin:0 0 8px;line-height:1.7;">お見積もりはその場で計算できます</p>
-              <p style="font-size:13.5px;color:#7C8A75;line-height:1.95;font-weight:500;margin:0;">品種・規格・数量・お届け先を選ぶと、芋代＋送料の総額がすぐに分かります。まとまった数量や継続のお取引もご相談ください。</p>
-            </div>
+            <p style="font-size:14px;color:#7C8A75;line-height:2;font-weight:500;margin:0 0 14px;">第2回焼き<wbr>芋選手権 <b style="color:#33402F;">最高金賞</b>（シルクスイート）、野菜ソムリエサミット <b style="color:#33402F;">銀賞</b>（べにはるか）、さつまいも<wbr>博 <b style="color:#33402F;">ファーマーズ・オブ・ザ・イヤー</b> 受賞。産地も<wbr>品種も<wbr>生産者も<wbr>伏せた<wbr>ブラインド<wbr>審査で、味そのものを<wbr>評価いただきました。</p>
+            <p style="font-size:14px;color:#7C8A75;line-height:2;font-weight:500;margin:0 0 22px;">B品・<wbr>訳あり<wbr>品も、その<wbr>芋とまったく<wbr>同じ<wbr>畑で、同じ<wbr>日に<wbr>掘り、同じ<wbr>貯蔵庫で<wbr>熟成させたものです。ちがうのは<wbr>見た<wbr>目だけ。<b style="color:#33402F;">受賞した<wbr>芋と<wbr>同じ<wbr>味を、そのまま<wbr>お届けすることを<wbr>お約束します。</b></p>
             <div data-imp-actions="" style="display:flex;gap:10px;flex-wrap:wrap;">
-              <a href="/simulation/" style="display:inline-block;background:#32285B;color:#fff;font-weight:700;font-size:14px;padding:14px 30px;border-radius:999px;text-decoration:none;">金額をシミュレーションする →</a>
+              <a href="/simulation/" style="display:inline-block;background:#32285B;color:#fff;font-weight:700;font-size:14px;padding:14px 30px;border-radius:999px;text-decoration:none;">金額を<wbr>シミュレーションする →</a>
               <a href="https://forms.gle/EjTF8Bzc1LbZgEicA" target="_blank" rel="noopener" style="display:inline-block;background:#fff;border:2px solid #32285B;color:#32285B;font-weight:700;font-size:14px;padding:12px 28px;border-radius:999px;text-decoration:none;">相談する →</a>
             </div>
           </div>
@@ -213,9 +211,7 @@
 
       <div style="position:relative;z-index:1;background:#fff;border-top:1px solid #ECE9F3;padding:64px 56px;">
         <div>
-          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#32285B;display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:34px;height:3px;background:#32285B;border-radius:3px;"></span>HOW TO USE</div>
-          <h2 style="font-size:30px;font-weight:900;line-height:1.5;margin:0 0 14px;">こんな加工に使われています</h2>
-          <p style="font-size:15px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0 0 34px;max-width:600px;">実際にお取引先で作られているもの、加工に向いている用途の一例です。</p>
+          <h2 style="font-size:30px;font-weight:900;line-height:1.5;margin:0 0 14px;">こんな<wbr>加工に<wbr>使われています</h2>
           <div data-use-chips="" style="display:grid;grid-template-columns:repeat(6,1fr);gap:22px;">
             <div style="border-top:2px solid #32285B;padding:16px 0 0;">
               <div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:#9A93B8;margin-bottom:8px;">01</div>
@@ -247,16 +243,15 @@
 
       <div style="position:relative;z-index:1;padding:64px 56px;">
         <div>
-          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#32285B;display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:34px;height:3px;background:#32285B;border-radius:3px;"></span>GRADE</div>
-          <h2 style="font-size:30px;font-weight:900;line-height:1.5;margin:0 0 26px;">B品と訳あり品のちがい</h2>
+          <h2 style="font-size:30px;font-weight:900;line-height:1.5;margin:0 0 26px;">B品と<wbr>訳あり<wbr>品のちがい</h2>
           <div data-spec-grid="" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
             <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:30px 28px;">
               <h3 style="font-size:20px;font-weight:900;margin:0 0 12px;">B品</h3>
-              <p style="font-size:14px;color:#7C8A75;line-height:2;font-weight:500;margin:0;">傷や曲がりなどがあり、A品にはできないもの。<b style="color:#33402F;">サイズをご指定いただけます。</b>皮ごと使う焼き芋・干し芋にもお使いいただけます。</p>
+              <p style="font-size:14px;color:#7C8A75;line-height:2;font-weight:500;margin:0;">傷や<wbr>曲がりなどがあり、A品にはできないもの。<b style="color:#33402F;">サイズを<wbr>ご指定いただけます。</b>皮ごと<wbr>使う<wbr>焼き<wbr>芋・<wbr>干し<wbr>芋にも<wbr>お使いいただけます。</p>
             </div>
             <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:30px 28px;">
               <h3 style="font-size:20px;font-weight:900;margin:0 0 12px;">訳あり品</h3>
-              <p style="font-size:14px;color:#7C8A75;line-height:2;font-weight:500;margin:0;">大きな曲がりや傷、二股など、B品の規格にもならないもの。<b style="color:#33402F;">サイズのご指定はできません。</b>皮をむいてペーストにする加工に向いています。</p>
+              <p style="font-size:14px;color:#7C8A75;line-height:2;font-weight:500;margin:0;">大きな<wbr>曲がりや<wbr>傷、二股など、B品の<wbr>規格にもならないもの。<b style="color:#33402F;">サイズの<wbr>ご指定はできません。</b>皮をむいて<wbr>ペーストにする<wbr>加工に<wbr>向いています。</p>
             </div>
           </div>
 
@@ -265,24 +260,22 @@
 
       <div style="position:relative;z-index:1;background:#fff;border-top:1px solid #ECE9F3;padding:64px 56px;">
         <div>
-          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#32285B;display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:34px;height:3px;background:#32285B;border-radius:3px;"></span>ORDER</div>
           <h2 style="font-size:30px;font-weight:900;line-height:1.5;margin:0 0 26px;">ご注文について</h2>
           <div style="display:flex;flex-direction:column;gap:14px;">
-            <div style="background:#F9F9F9;border-radius:16px;padding:20px 24px;"><p style="font-size:14px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;"><b style="color:#33402F;">卸の単位</b>　5kg箱単位でのお届けです。訳あり品は5kgから、B品は20kgから承っております。20kg以下のご購入は<a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="color:#32285B;font-weight:700;">オンラインストア</a>もご利用いただけます。</p></div>
+            <div style="background:#F9F9F9;border-radius:16px;padding:20px 24px;"><p style="font-size:14px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;"><b style="color:#33402F;">卸の単位</b>　5kg箱単位での<wbr>お届けです。訳あり<wbr>品は<wbr>5kgから、B品は<wbr>20kgから<wbr>承っております。20kg以下の<wbr>ご購入は<a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="color:#32285B;font-weight:700;">オンラインストア</a>も<wbr>ご利用いただけます。</p></div>
             <div style="background:#F9F9F9;border-radius:16px;padding:20px 24px;"><p style="font-size:14px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;">
-              <b style="color:#33402F;">品種と時期</b>　シルクスイートは新芋が8月〜9月、熟成芋が11月〜1月ごろ。べにはるかは2月〜5月ごろ。年間を通してどちらかをご用意できます。</p></div>
+              <b style="color:#33402F;">品種と時期</b>　シルクスイートは<wbr>新芋が<wbr>8月〜9月、熟成芋が<wbr>11月〜1月ごろ。べにはるかは<wbr>2月〜5月ごろ。年間を<wbr>通してどちらかを<wbr>ご用意できます。</p></div>
             <div style="background:#F9F9F9;border-radius:16px;padding:20px 24px;"><p style="font-size:14px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;">
-              <b style="color:#33402F;">お見積もり・送料</b>　単価は規格・サイズによって異なります。詳細は<a href="/simulation/" style="color:#32285B;font-weight:700;">見積もりシミュレーション</a>でご確認ください。</p></div>
+              <b style="color:#33402F;">お見積もり<wbr>・<wbr>送料</b>　単価は<wbr>規格・サイズによって<wbr>異なります。詳細は<a href="/simulation/" style="color:#32285B;font-weight:700;">見積もり<wbr>シミュレーション</a>で<wbr>ご確認ください。</p></div>
             <div style="background:#F9F9F9;border-radius:16px;padding:20px 24px;"><p style="font-size:14px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;">
-              <b style="color:#33402F;">数量について</b>　訳あり品は収穫・選別の状況により数量に限りがございます。B品は基本的に数量の制限はございません。訳あり品の継続的なお取引をご希望の方は、お問い合わせよりご相談ください。</p></div>
+              <b style="color:#33402F;">数量について</b>　訳あり<wbr>品は<wbr>収穫・<wbr>選別の<wbr>状況により<wbr>数量に<wbr>限りがございます。B品は<wbr>基本的に<wbr>数量の<wbr>制限はございません。訳あり<wbr>品の<wbr>継続的な<wbr>お取引を<wbr>ご希望の<wbr>方は、お問い<wbr>合わせより<wbr>ご相談ください。</p></div>
           </div>
         </div>
       </div>
 
       <div style="position:relative;z-index:1;background:#fff;border-top:1px solid #ECE9F3;padding:56px 56px 64px;">
-        <p style="font-size:18px;font-weight:900;line-height:1.6;margin:0 0 8px;">まずはお気軽にご相談ください</p>
-        <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0 0 26px;">ご希望の品種・数量・お届け先をお知らせいただければ、お見積もりをお送りします。</p>
-        <a href="https://forms.gle/EjTF8Bzc1LbZgEicA" target="_blank" rel="noopener" style="display:inline-block;background:#32285B;color:#fff;padding:16px 40px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 6px 0 #E3E0EF;">お問い合わせはこちら →</a>
+        <p style="font-size:18px;font-weight:900;line-height:1.6;margin:0 0 26px;">まずは<wbr>お気軽に<wbr>ご相談ください</p>
+        <a href="https://forms.gle/EjTF8Bzc1LbZgEicA" target="_blank" rel="noopener" style="display:inline-block;background:#32285B;color:#fff;padding:16px 40px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 6px 0 #E3E0EF;">お問い<wbr>合わせはこちら →</a>
       </div>
 
     </div>

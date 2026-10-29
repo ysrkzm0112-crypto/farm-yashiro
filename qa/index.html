@@ -117,6 +117,9 @@
     [style*="font-size:14px"],[style*="font-size: 14px"]{font-size:16px!important;}
     [style*="font-size:13px"],[style*="font-size: 13px"]{font-size:14.5px!important;}
   }
+
+  /* 文節で折り返す（2026-10-29） */
+  body{word-break:keep-all;overflow-wrap:break-word;}
 </style>
 </helmet>
 <section data-fy-root="" style="background:#F9F9F9;font-family:'Zen Kaku Gothic New',sans-serif;">
@@ -138,7 +141,7 @@
       <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid #E7E4F0;">
         <a href="/" style="display:flex;align-items:center;text-decoration:none;"><img src="../assets/logo.png" alt="FARM YASHIRO" style="height:34px;"></a>
         <div style="display:flex;gap:26px;font-size:14px;font-weight:700;">
-          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="/#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><a href="/simulation/" style="color:#33402F;text-decoration:none;">見積もりシミュレーション</a><a href="/processing/" style="color:#33402F;text-decoration:none;">加工向けさつまいも</a><span style="color:#32285B;font-weight:700;">Q&amp;A</span><a href="/recruit/" style="color:#33402F;text-decoration:none;">採用情報</a>
+          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="/#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><a href="/simulation/" style="color:#33402F;text-decoration:none;">見積もり<wbr>シミュレーション</a><a href="/processing/" style="color:#33402F;text-decoration:none;">加工向けさつまいも</a><span style="color:#32285B;font-weight:700;">Q&amp;A</span><a href="/recruit/" style="color:#33402F;text-decoration:none;">採用情報</a>
         </div>
         <input type="checkbox" id="fyMenu" style="display:none;">
         <div style="display:flex;align-items:center;gap:10px;">
@@ -150,7 +153,7 @@
           <a href="/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">TOP</a>
           <a href="/#steps" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">こだわり</a>
           <a href="/about-farm/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">農園について</a>
-          <a href="/simulation/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">見積もりシミュレーション</a><a href="/processing/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">加工向けさつまいも</a>
+          <a href="/simulation/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">見積もり<wbr>シミュレーション</a><a href="/processing/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">加工向けさつまいも</a>
           <a href="/qa/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">Q&amp;A</a>
           <a href="/recruit/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">採用情報</a>
           <a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="margin-top:16px;background:#F7E034;color:#32285B;padding:14px 38px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;">オンラインストア</a>
@@ -158,9 +161,7 @@
       </div>
 
       <div style="position:relative;z-index:1;text-align:center;padding:72px 56px 40px;">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#32285B;margin-bottom:16px;">Q&amp;A</div>
         <h1 style="font-size:40px;font-weight:900;line-height:1.4;margin:0 0 14px;">よくあるご質問</h1>
-        <p style="font-size:15px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0;">ご購入・品種・お届けについて、よくいただくご質問をまとめました。</p>
       </div>
 
       <div data-faq="" style="position:relative;z-index:1;max-width:820px;margin:0 auto;padding:0 56px 88px;display:flex;flex-direction:column;gap:14px;">
@@ -168,22 +169,22 @@
         <div data-faq-item="" style="background:#fff;border:1px solid #E7E4F0;border-radius:18px;overflow:hidden;box-shadow:0 12px 28px -22px rgba(50,40,91,.3);">
           <div data-faq-q="" style="display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;">
             <span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F7E034;flex-shrink:0;">Q</span>
-            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">どこで購入できますか？</span>
+            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">どこで<wbr>購入できますか？</span>
             <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
           </div>
           <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
-            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">オンラインストアほか、メール・SNSからのご連絡で、お振込による農家直送の直接取引も承っております。また、農園での直販も行っております。アクセスは「農園について」をご覧ください。</p>
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">オンラインストアほか、メール・SNSからの<wbr>ご連絡で、お振込による<wbr>農家直送の<wbr>直接取引も<wbr>承っております。また、農園での<wbr>直販も<wbr>行っております。アクセスは<wbr>「農園について」<wbr>を<wbr>ご覧ください。</p>
           </div>
         </div>
 
         <div data-faq-item="" style="background:#fff;border:1px solid #E7E4F0;border-radius:18px;overflow:hidden;box-shadow:0 12px 28px -22px rgba(50,40,91,.3);">
           <div data-faq-q="" style="display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;">
             <span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F7E034;flex-shrink:0;">Q</span>
-            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">どんな品種を扱っていますか？</span>
+            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">どんな<wbr>品種を<wbr>扱っていますか？</span>
             <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
           </div>
           <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
-            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">主に「べにはるか」と「シルクスイート」の2品種を栽培しています。べにはるかは蜜の糖度が最高80度に達する、ねっとり濃厚な味わい。シルクスイートは羊羹のようになめらかで上品な口当たりが特長です。</p>
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">主に<wbr>「べにはるか」<wbr>と<wbr>「シルクスイート」<wbr>の<wbr>2品種を<wbr>栽培しています。べにはるかは<wbr>蜜の<wbr>糖度が<wbr>最高80度に<wbr>達する、ねっとり<wbr>濃厚な<wbr>味わい。シルクスイートは<wbr>羊羹のようになめらかで<wbr>上品な<wbr>口当たりが<wbr>特長です。</p>
           </div>
         </div>
 
@@ -194,7 +195,7 @@
             <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
           </div>
           <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
-            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">べにはるかは2月〜5月ごろ、シルクスイートは新芋が8月〜9月、貯蔵熟成したものが11月〜1月ごろの販売となります。時期やタイミングによっては在庫がない場合がございます。</p>
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">べにはるかは<wbr>2月〜5月ごろ、シルクスイートは<wbr>新芋が<wbr>8月〜9月、貯蔵熟成したものが<wbr>11月〜1月ごろの<wbr>販売となります。時期や<wbr>タイミングによっては<wbr>在庫がない<wbr>場合がございます。</p>
           </div>
         </div>
 
@@ -205,7 +206,7 @@
             <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
           </div>
           <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
-            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">お届け先の地域と数量によって異なります。「見積もりシミュレーション」ページで、品種・規格・数量・お届け先を選ぶと、芋代と送料を含めた参考総額をその場でご確認いただけます。</p>
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">お届け<wbr>先の<wbr>地域と<wbr>数量によって<wbr>異なります。「見積もり<wbr>シミュレーション」<wbr>ページで、品種・<wbr>規格・<wbr>数量・お届け<wbr>先を<wbr>選ぶと、芋代と<wbr>送料を<wbr>含めた<wbr>参考総額をその<wbr>場で<wbr>ご確認いただけます。</p>
           </div>
         </div>
 
@@ -216,49 +217,48 @@
             <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
           </div>
           <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
-            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">切り品とは、収穫中など作業中に端が折れてしまった芋や、傷がある箇所を切り落とした品です。味自体に大き違いはありませんが、A品などと比べて痛みが早く出やすいため、お早めにお召し上がりください。</p>
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">切り<wbr>品とは、収穫中など<wbr>作業中に<wbr>端が<wbr>折れてしまった<wbr>芋や、傷がある<wbr>箇所を<wbr>切り<wbr>落とした<wbr>品です。味自体に<wbr>大き<wbr>違いはありませんが、A品などと<wbr>比べて<wbr>痛みが<wbr>早く<wbr>出やすいため、お早めに<wbr>お召し<wbr>上がりください。</p>
           </div>
         </div>
 
         <div data-faq-item="" style="background:#fff;border:1px solid #E7E4F0;border-radius:18px;overflow:hidden;box-shadow:0 12px 28px -22px rgba(50,40,91,.3);">
           <div data-faq-q="" style="display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;">
             <span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F7E034;flex-shrink:0;">Q</span>
-            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">新芋と貯蔵熟成芋の違いはなんですか？</span>
+            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">新芋と<wbr>貯蔵熟成芋の<wbr>違いはなんですか？</span>
             <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
           </div>
           <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
-            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">新芋は掘り立てのさつまいもです。貯蔵熟成芋は収穫後、専用貯蔵庫で熟成させデンプンを糖化させたさつまいもです。</p>
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">新芋は<wbr>掘り<wbr>立てのさつまいもです。貯蔵熟成芋は<wbr>収穫後、専用貯蔵庫で<wbr>熟成させ<wbr>デンプンを<wbr>糖化させたさつまいもです。</p>
           </div>
         </div>
 
         <div data-faq-item="" style="background:#fff;border:1px solid #E7E4F0;border-radius:18px;overflow:hidden;box-shadow:0 12px 28px -22px rgba(50,40,91,.3);">
           <div data-faq-q="" style="display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;">
             <span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F7E034;flex-shrink:0;">Q</span>
-            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">自分で熟成したいのですが、熟成方法を教えてください。</span>
+            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">自分で<wbr>熟成したいのですが、熟成方法を<wbr>教えてください。</span>
             <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
           </div>
           <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
-            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">自家熟成は推奨しておりません。自家熟成による痛みなどのクレームや問い合わせは一切受け付けておりません。</p>
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">自家熟成は<wbr>推奨しておりません。自家熟成による<wbr>痛みなどの<wbr>クレームや<wbr>問い<wbr>合わせは<wbr>一切受け<wbr>付けておりません。</p>
           </div>
         </div>
 
         <div data-faq-item="" style="background:#fff;border:1px solid #E7E4F0;border-radius:18px;overflow:hidden;box-shadow:0 12px 28px -22px rgba(50,40,91,.3);">
           <div data-faq-q="" style="display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;">
             <span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#F7E034;flex-shrink:0;">Q</span>
-            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">保管方法を教えてください。</span>
+            <span style="flex:1;font-size:16px;font-weight:700;line-height:1.6;">保管方法を<wbr>教えてください。</span>
             <span data-faq-mark="" style="flex-shrink:0;font-size:22px;color:#32285B;transition:transform .3s ease;">＋</span>
           </div>
           <div data-faq-a="" style="max-height:0;overflow:hidden;transition:max-height .35s ease;">
-            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">通気性のいい冷暗所に保管してください。20℃前後を超えると芽が出やすくなります。また、10℃前後以下では痛みが始まります。</p>
+            <p style="font-size:14.5px;color:#5B6656;line-height:1.95;font-weight:500;margin:0;padding:0 28px 26px 64px;">通気性のいい<wbr>冷暗所に<wbr>保管してください。20℃前後を<wbr>超えると<wbr>芽が<wbr>出やすくなります。また、10℃前後以下では<wbr>痛みが<wbr>始まります。</p>
           </div>
         </div>
 
       </div>
 
       <div style="position:relative;z-index:1;background:#fff;border-top:1px solid #ECE9F3;padding:56px 56px 64px;text-align:center;">
-        <p style="font-size:18px;font-weight:900;line-height:1.6;margin:0 0 8px;">解決しないご質問はございますか？</p>
-        <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0 0 26px;">その他のご質問・ご相談は、お問い合わせフォームよりお気軽にご連絡ください。</p>
-        <a href="https://forms.gle/EjTF8Bzc1LbZgEicA" target="_blank" rel="noopener" style="display:inline-block;background:#32285B;color:#fff;padding:16px 40px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 6px 0 #E3E0EF;">お問い合わせはこちら →</a>
+        <p style="font-size:18px;font-weight:900;line-height:1.6;margin:0 0 8px;">解決しない<wbr>ご質問はございますか？</p>
+        <a href="https://forms.gle/EjTF8Bzc1LbZgEicA" target="_blank" rel="noopener" style="display:inline-block;background:#32285B;color:#fff;padding:16px 40px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 6px 0 #E3E0EF;">お問い<wbr>合わせはこちら →</a>
       </div>
 
     </div>

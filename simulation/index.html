@@ -116,6 +116,9 @@
     [style*="font-size:14px"],[style*="font-size: 14px"]{font-size:16px!important;}
     [style*="font-size:13px"],[style*="font-size: 13px"]{font-size:14.5px!important;}
   }
+
+  /* 文節で折り返す（2026-10-29） */
+  body{word-break:keep-all;overflow-wrap:break-word;}
 </style>
 </helmet>
 <section style="background:#F9F9F9;font-family:'Zen Kaku Gothic New',sans-serif;">
@@ -127,7 +130,7 @@
       <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid #E7E4F0;">
         <a href="/" style="display:flex;align-items:center;text-decoration:none;"><img src="../assets/logo.png" alt="FARM YASHIRO" style="height:34px;"></a>
         <div style="display:flex;gap:26px;font-size:14px;font-weight:700;">
-          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="/#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><span style="color:#32285B;font-weight:700;">見積もりシミュレーション</span><a href="/processing/" style="color:#33402F;text-decoration:none;">加工向けさつまいも</a><a href="/qa/" style="color:#33402F;text-decoration:none;">Q&amp;A</a><a href="/recruit/" style="color:#33402F;text-decoration:none;">採用情報</a>
+          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="/#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><span style="color:#32285B;font-weight:700;">見積もり<wbr>シミュレーション</span><a href="/processing/" style="color:#33402F;text-decoration:none;">加工向けさつまいも</a><a href="/qa/" style="color:#33402F;text-decoration:none;">Q&amp;A</a><a href="/recruit/" style="color:#33402F;text-decoration:none;">採用情報</a>
         </div>
         <input type="checkbox" id="fyMenu" style="display:none;">
         <div style="display:flex;align-items:center;gap:10px;">
@@ -139,7 +142,7 @@
           <a href="/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">TOP</a>
           <a href="/#steps" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">こだわり</a>
           <a href="/about-farm/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">農園について</a>
-          <a href="/simulation/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">見積もりシミュレーション</a><a href="/processing/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">加工向けさつまいも</a>
+          <a href="/simulation/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">見積もり<wbr>シミュレーション</a><a href="/processing/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">加工向けさつまいも</a>
           <a href="/qa/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">Q&amp;A</a>
           <a href="/recruit/" style="color:#fff;font-size:22px;font-weight:700;padding:12px 24px;text-decoration:none;">採用情報</a>
           <a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="margin-top:16px;background:#F7E034;color:#32285B;padding:14px 38px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;">オンラインストア</a>
@@ -147,17 +150,14 @@
       </div>
 
       <div style="position:relative;z-index:1;text-align:center;padding:64px 56px 8px;">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#32285B;margin-bottom:16px;">ESTIMATE SIMULATOR</div>
-        <h1 style="font-size:40px;font-weight:900;line-height:1.4;margin:0 0 14px;">見積もりシミュレーション</h1>
-        <p style="font-size:15px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0;">お届け先・品種・規格・数量を選ぶと、芋代＋送料（税込）の参考総額をその場で計算します。</p>
+        <h1 style="font-size:40px;font-weight:900;line-height:1.4;margin:0 0 14px;">見積もり<wbr>シミュレーション</h1>
       </div>
 
       <div data-sim style="position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;padding:40px 56px 88px;max-width:960px;margin:0 auto;">
 
         <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:28px 30px;box-shadow:0 14px 32px -24px rgba(50,40,91,.35);">
-          <p style="font-size:15px;font-weight:900;margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid #EFEDF5;">お届け先・品種・規格</p>
 
-          <label style="display:block;font-size:13px;font-weight:700;margin:0 0 7px;">お届け先の都道府県</label>
+          <label style="display:block;font-size:13px;font-weight:700;margin:0 0 7px;">お届け<wbr>先の<wbr>都道府県</label>
           <div data-selwrap style="position:relative;margin-bottom:18px;"><select data-pref style="width:100%;padding:11px 13px;border-radius:11px;border:1px solid #E7E4F0;background:#F9F9F9;color:#33402F;font-size:15px;font-family:inherit;appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:38px;"></select><span aria-hidden="true" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:11px;color:#32285B;pointer-events:none;">▼</span></div>
 
           <label style="display:block;font-size:13px;font-weight:700;margin:0 0 7px;">品種</label>
@@ -177,7 +177,7 @@
 
           <label style="display:block;font-size:13px;font-weight:700;margin:0 0 7px;">数量（kg）</label>
           <input data-qty type="number" min="5" step="1" inputmode="numeric" style="width:100%;padding:11px 13px;border-radius:11px;border:1px solid #E7E4F0;background:#F9F9F9;color:#33402F;font-size:15px;font-family:inherit;box-sizing:border-box;">
-          <p data-qtynote style="font-size:12px;color:#9A93B8;margin:7px 0 0;line-height:1.6;">ご注文は20kgから承っております（例：20kgなら「20」）</p>
+          <p data-qtynote style="font-size:12px;color:#9A93B8;margin:7px 0 0;line-height:1.6;">ご注文は<wbr>20kgから<wbr>承っております<wbr>（例：20kgなら<wbr>「20」）</p>
 
           <button type="button" data-calc style="width:100%;padding:16px;margin-top:22px;border:none;border-radius:14px;background:#32285B;color:#fff;font-size:16px;font-weight:900;font-family:inherit;cursor:pointer;letter-spacing:.05em;box-shadow:0 4px 0 #E3E0EF;">金額を確認する</button>
           <div data-error style="display:none;color:#C0392B;font-size:13px;font-weight:700;margin-top:12px;line-height:1.6;"></div>
@@ -186,14 +186,13 @@
         <div style="position:sticky;top:24px;background:#32285B;border-radius:26px;padding:34px 34px 30px;color:#fff;overflow:hidden;box-shadow:0 22px 48px -28px rgba(50,40,91,.6);">
           <div style="position:absolute;top:-80px;right:-60px;width:200px;height:200px;background:rgba(247,224,52,.18);border-radius:60% 40% 40% 60%/55% 45% 55% 45%;"></div>
           <div style="position:relative;z-index:1;">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;color:#F7E034;margin-bottom:18px;">YOUR ESTIMATE</div>
             <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 0;font-size:14px;border-bottom:1px dashed rgba(255,255,255,.22);"><span style="color:rgba(255,255,255,.7);">芋代</span><span data-r-imo style="font-weight:700;">—</span></div>
             <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 0;font-size:14px;border-bottom:1px dashed rgba(255,255,255,.22);"><span style="color:rgba(255,255,255,.7);">消費税（8%）</span><span data-r-imotax style="font-weight:700;">—</span></div>
             <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 0;font-size:14px;border-bottom:1px dashed rgba(255,255,255,.22);"><span style="color:rgba(255,255,255,.7);">送料</span><span data-r-ship style="font-weight:700;">—</span></div>
             <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 0;font-size:14px;border-bottom:1px dashed rgba(255,255,255,.22);"><span style="color:rgba(255,255,255,.7);">消費税（10%）</span><span data-r-shiptax style="font-weight:700;">—</span></div>
             <div style="display:flex;justify-content:space-between;align-items:center;padding-top:18px;margin-top:6px;border-top:2px solid #F7E034;"><span style="font-size:16px;font-weight:900;">お見積り総額</span><span data-r-total style="font-size:28px;font-weight:900;color:#F7E034;font-family:'Space Grotesk',sans-serif;">—</span></div>
-            <p style="font-size:11.5px;color:rgba(255,255,255,.62);margin:18px 0 0;line-height:1.8;">※ 表示は税込価格の参考シミュレーションです。実際のご注文は別途ご連絡ください。<br>※ 芋代は軽減税率8%、送料は標準税率10%が適用されます。</p>
-            <a href="https://forms.gle/EjTF8Bzc1LbZgEicA" target="_blank" rel="noopener" style="display:block;text-align:center;background:#F7E034;color:#32285B;padding:15px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none;margin-top:22px;">注文・お問い合わせ →</a>
+            <p style="font-size:11.5px;color:rgba(255,255,255,.62);margin:18px 0 0;line-height:1.8;">※ 表示は<wbr>税込価格の<wbr>参考シミュレーションです。実際の<wbr>ご注文は<wbr>別途ご連絡ください。<br>※ 芋代は<wbr>軽減税率8%、送料は<wbr>標準税率10%が<wbr>適用されます。</p>
+            <a href="https://forms.gle/EjTF8Bzc1LbZgEicA" target="_blank" rel="noopener" style="display:block;text-align:center;background:#F7E034;color:#32285B;padding:15px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none;margin-top:22px;">注文・お問い<wbr>合わせ →</a>
           </div>
         </div>
 
