@@ -239,9 +239,9 @@
   [data-tophero-copy] h1{font-size:52px;line-height:1.5;margin-bottom:44px!important;}
   [data-tophero-photo]{position:relative;overflow:hidden;}
   [data-tophero-photo] img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:82%;width:auto;max-width:none;max-height:1000px;display:block;}
-  [data-topintro] br.sp{display:none;}
+    [data-topintro] [data-sent]{display:block;}
   [data-topintro]{position:relative;z-index:1;padding:96px var(--gut) 40px;}
-  [data-topintro] p{word-break:keep-all;overflow-wrap:break-word;font-size:24px;font-weight:700;line-height:1.9;color:#33402F;max-width:760px;margin:0 0 32px;letter-spacing:.04em;}
+  [data-topintro] p{word-break:keep-all;overflow-wrap:anywhere;font-size:clamp(15px,calc((100vw - 120px) / 45),24px);font-weight:700;line-height:1.9;color:#33402F;max-width:none;margin:0 0 32px;letter-spacing:.04em;}
   [data-hdr-dark] a[href="/"] img{height:30px!important;}
   @media (min-width:1280px){
     [data-tophero]{min-height:720px;}
@@ -255,8 +255,7 @@
     [data-tophero-line]{margin-bottom:26px;}
     [data-tophero-copy] h1{font-size:30px;margin-bottom:32px!important;}
     [data-topintro]{padding:64px var(--gut) 24px;}
-    [data-topintro] p{font-size:18px;word-break:normal;}
-    [data-topintro] br.sp{display:inline;}
+    [data-topintro] p{font-size:18px;}
     [data-hdr-dark] a[href="/"] img{height:22px!important;}
   }
 </style>
@@ -310,7 +309,7 @@
       </div>
 
       <div data-topintro>
-        <p>FARM&nbsp;YASHIROは<br class="sp">千葉県香取市で80年続く、<br class="sp">さつまいも認定農家です。<br class="sp">専用の貯蔵庫で温度と湿度を<br class="sp">24時間管理し、甘みが増すまで<br class="sp">熟成させてから出荷しています。</p>
+        <p><span data-sent>FARM&nbsp;YASHIROは<wbr>千葉県<wbr>香取市で<wbr>80年続く、<wbr>さつまいも<wbr>認定農家です。</span><span data-sent>専用の<wbr>貯蔵庫で<wbr>温度と<wbr>湿度を<wbr>24時間<wbr>管理し、<wbr>甘みが<wbr>増すまで<wbr>熟成させてから<wbr>出荷しています。</span></p>
         <a href="/about-farm/" style="display:inline-block;background:#32285B;color:#fff;font-weight:700;font-size:14px;padding:14px 30px;border-radius:999px;text-decoration:none;">農園について →</a>
       </div>
 
