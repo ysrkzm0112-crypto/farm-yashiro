@@ -50,7 +50,7 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Zen+Kaku+Gothic+New:wght@500;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Zen+Kaku+Gothic+New:wght@500;700;900&amp;family=Shippori+Mincho:wght@600&amp;display=swap" rel="stylesheet">
 <style>
   @keyframes fy-wiggle{0%,100%{transform:rotate(-4deg);}50%{transform:rotate(4deg);}}
   @keyframes oimoDraw{to{stroke-dashoffset:0;}}
@@ -230,6 +230,33 @@
   }
   .hero-copy h1{text-shadow:0 2px 18px rgba(0,0,0,.55),0 1px 4px rgba(0,0,0,.45);}
   .hero-cta a[style*="transparent"]{background:rgba(20,16,40,.55)!important;backdrop-filter:blur(2px);}
+
+  /* ══ トップ構図案（2026-10-29 サンプル）：ヘッダー〜メイン画像を黒地に ══ */
+  [data-tophero-wrap]{position:relative;z-index:2;background:#000;}
+  [data-tophero]{display:grid;grid-template-columns:5fr 6fr;min-height:640px;}
+  [data-tophero-copy]{align-self:center;padding:72px 0 72px var(--gut);}
+  [data-tophero-line]{display:block;width:56px;height:3px;background:#F7E034;border-radius:3px;margin-bottom:36px;}
+  [data-tophero-copy] h1{font-size:52px;line-height:1.5;margin-bottom:44px!important;}
+  [data-tophero-photo]{position:relative;overflow:hidden;}
+  [data-tophero-photo] img{position:absolute;inset:0 0 -2px 0;width:100%;height:calc(100% + 2px);object-fit:cover;object-position:50% 20%;display:block;}
+  [data-topintro]{position:relative;z-index:1;padding:96px var(--gut) 40px;}
+  [data-topintro] p{word-break:keep-all;overflow-wrap:break-word;font-size:24px;font-weight:700;line-height:1.9;color:#33402F;max-width:760px;margin:0 0 32px;letter-spacing:.04em;}
+  [data-hdr-dark] a[href="/"] img{height:30px!important;}
+  @media (min-width:1280px){
+    [data-tophero]{min-height:720px;}
+    [data-tophero-copy] h1{font-size:60px;}
+  }
+  @media (max-width:768px){
+    [data-tophero]{grid-template-columns:1fr;min-height:0;}
+    [data-tophero-photo]{order:-1;height:400px;}
+    [data-tophero-photo] img{object-position:50% 10%;}
+    [data-tophero-copy]{padding:8px var(--gut) 72px;}
+    [data-tophero-line]{margin-bottom:26px;}
+    [data-tophero-copy] h1{font-size:30px;margin-bottom:32px!important;}
+    [data-topintro]{padding:64px var(--gut) 24px;}
+    [data-topintro] p{font-size:18px;word-break:normal;}
+    [data-hdr-dark] a[href="/"] img{height:22px!important;}
+  }
 </style>
 </helmet>
 <section data-fy-root style="background:#F9F9F9;font-family:'Zen Kaku Gothic New',sans-serif;">
@@ -248,14 +275,15 @@
       </div>
 
 
-      <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid #E7E4F0;">
-        <a href="/" style="display:flex;align-items:center;text-decoration:none;"><img src="assets/logo.png" alt="FARM YASHIRO" style="height:34px;"></a>
+      <div data-tophero-wrap>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-bottom:1px solid #000;background:#000;" data-hdr-dark>
+        <a href="/" style="display:flex;align-items:center;text-decoration:none;"><img src="assets/logo-white.png" alt="FARM YASHIRO" style="height:34px;"></a>
         <div style="display:flex;gap:26px;font-size:14px;font-weight:700;">
-          <a href="/" style="color:#33402F;text-decoration:none;">TOP</a><a href="#steps" style="color:#33402F;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#33402F;text-decoration:none;">農園について</a><a href="/simulation/" style="color:#33402F;text-decoration:none;">見積もりシミュレーション</a><a href="/processing/" style="color:#33402F;text-decoration:none;">加工向けさつまいも</a><a href="/qa/" style="color:#33402F;text-decoration:none;">Q&amp;A</a><a href="/recruit/" style="color:#32285B;text-decoration:none;font-weight:700;">採用情報</a>
+          <a href="/" style="color:#F9F9F9;text-decoration:none;">TOP</a><a href="#steps" style="color:#F9F9F9;text-decoration:none;">こだわり</a><a href="/about-farm/" style="color:#F9F9F9;text-decoration:none;">農園について</a><a href="/simulation/" style="color:#F9F9F9;text-decoration:none;">見積もりシミュレーション</a><a href="/processing/" style="color:#F9F9F9;text-decoration:none;">加工向けさつまいも</a><a href="/qa/" style="color:#F9F9F9;text-decoration:none;">Q&amp;A</a><a href="/recruit/" style="color:#F9F9F9;text-decoration:none;font-weight:700;">採用情報</a>
         </div>
         <input type="checkbox" id="fyMenu" style="display:none;">
         <div style="display:flex;align-items:center;gap:10px;">
-          <a data-hdr-store href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="background:#32285B;color:#fff;padding:10px 22px;border-radius:999px;font-size:13px;font-weight:700;box-shadow:0 4px 0 #E3E0EF;text-decoration:none;">オンラインストア</a>
+          <a data-hdr-store href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="background:#F7E034;color:#32285B;padding:10px 22px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none;">オンラインストア</a>
           <label for="fyMenu" data-hdr-burger aria-label="メニュー" style="width:40px;height:40px;border-radius:12px;background:#32285B;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px;flex-shrink:0;"><span style="display:block;width:18px;height:2px;background:#fff;border-radius:2px;"></span><span style="display:block;width:18px;height:2px;background:#fff;border-radius:2px;"></span><span style="display:block;width:18px;height:2px;background:#fff;border-radius:2px;"></span></label>
         </div>
         <div data-fy-menu style="position:fixed;inset:0;z-index:100050;background:rgba(42,33,72,.97);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:opacity .3s ease;">
@@ -269,24 +297,24 @@
           <a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="margin-top:16px;background:#F7E034;color:#32285B;padding:14px 38px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;">オンラインストア</a>
         </div>
       </div>
-
-      <div data-hero-wrap><div data-hero style="position:relative;width:100%;height:560px;background:#000;overflow:hidden;">
-        <img data-hero-img src="assets/photos/hero-award-web.jpg" alt="受賞の表彰状とトロフィー、さつまいもを詰めた黄色いコンテナの前に積まれたFARM YASHIROの出荷用段ボール箱" style="width:100%;height:100%;object-fit:cover;object-position:center 65%;display:block;background:#000;">
-        <img src="assets/awards/gold-medal-trans.png" alt="最高金賞" style="position:absolute;top:30px;right:40px;width:104px;z-index:2;filter:drop-shadow(0 8px 16px rgba(0,0,0,.5));">
-        <div class="hero-copy" style="position:absolute;top:50%;transform:translateY(-50%);z-index:2;">
-          
-          <h1 style="font-size:60px;font-weight:900;line-height:1.28;letter-spacing:-.02em;margin:0 0 26px;color:#fff;">畑からまっすぐ<br><span style="color:#F7E034;">おいしい</span>をお届け。</h1>
-          <div class="hero-cta">
-            <a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="background:#F7E034;color:#32285B;padding:16px 32px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none;">オンラインストアを見る →</a>
-            <a href="#about-1a" style="background:transparent;color:#fff;padding:16px 32px;border-radius:999px;font-size:14px;font-weight:700;border:2px solid rgba(255,255,255,.6);text-decoration:none;">農園についてはこちら</a>
+        <div data-tophero>
+          <div data-tophero-copy>
+            <span data-tophero-line></span>
+            <h1 style="font-family:'Shippori Mincho',serif;font-weight:600;letter-spacing:.12em;color:#F9F9F9;margin:0;">畑からまっすぐ、<br>八代のさつまいも</h1>
+            <a href="https://farmyashiro.base.shop/" target="_blank" rel="noopener" style="display:inline-block;background:#F7E034;color:#32285B;padding:16px 32px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none;">オンラインストア →</a>
           </div>
+          <div data-tophero-photo><img src="assets/photos/beniharuka-muji.jpg" alt="割ったべにはるかの焼き芋"></div>
         </div>
-      </div></div>
+      </div>
+
+      <div data-topintro>
+        <p>千葉県香取市で80年続く、さつまいも認定農家です。専用の貯蔵庫で温度と湿度を24時間管理し、甘みが増すまで熟成させてから出荷しています。</p>
+        <a href="/about-farm/" style="display:inline-block;background:#32285B;color:#fff;font-weight:700;font-size:14px;padding:14px 30px;border-radius:999px;text-decoration:none;">農園について →</a>
+      </div>
 
       <div class="sec-news" style="position:relative;z-index:1;background:transparent;">
         <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:26px 30px;box-shadow:0 14px 32px -24px rgba(50,40,91,.3);display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap;">
           <div style="flex-shrink:0;">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;">NEWS</div>
             <div style="font-size:13px;font-weight:700;color:#9A93B8;margin-top:2px;">お知らせ</div>
           </div>
           <ul style="flex:1;min-width:300px;list-style:none;margin:0;padding:0;">
@@ -305,7 +333,7 @@
             <li>
               <a href="/recruit/" style="display:flex;gap:16px;align-items:baseline;padding:12px 0;text-decoration:none;color:#33402F;">
                 <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:12px;font-weight:700;color:#9A93B8;flex-shrink:0;width:88px;">2026.05.15</span>
-                <span data-news style="font-size:14px;font-weight:500;line-height:1.6;">農作業スタッフを募集しています。採用情報はこちら。</span>
+                <span data-news style="font-size:14px;font-weight:500;line-height:1.6;">農作業スタッフを募集しています。</span>
               </a>
             </li>
           </ul>
@@ -313,10 +341,8 @@
       </div>
 
       <div id="about-1a" class="sec" style="background:transparent;">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#32285B;display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:34px;height:3px;background:#32285B;border-radius:3px;"></span>ABOUT THE FARM</div>
         <h2 style="font-size:40px;font-weight:900;line-height:1.35;margin:0 0 16px;">こんな<span>こだわり</span>でつくっています</h2>
-        <p style="font-size:15px;color:#7C8A75;line-height:1.9;font-weight:500;max-width:600px;margin:0;">千葉県香取市で80年続くさつまいも認定農家。専用貯蔵庫で温度・湿度を24時間管理し、甘みがじっくり増すまで熟成させてお届けします。</p>
-        <div data-keep2 style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px;">
+                <div data-keep2 style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px;">
           <div data-vcard>
             <div data-vcard-media>
               <img src="assets/photos/beniharuka-yaki-web.jpg" alt="べにはるかの焼き芋。割ると黄金色の蜜があふれる" loading="lazy">
@@ -343,12 +369,11 @@
       </div>
 
       <div id="steps" class="sec" style="scroll-margin-top:80px;">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#32285B;display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:34px;height:3px;background:#32285B;border-radius:3px;"></span>FROM FIELD TO TABLE</div>
         <h2 style="font-size:40px;font-weight:900;line-height:1.35;margin:0 0 44px;">畑から手元に届くまでを、<span>のぞいてみる</span></h2>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:56px;">
           <div data-fy-slide="left" style="border-radius:130px 32px 32px 32px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 24px 50px -26px rgba(50,40,91,.4);"><img src="assets/photos/tractor-web.jpg" alt="畑を育てる" style="width:100%;height:100%;object-fit:cover;"></div>
           <div>
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:10px;">STEP 01 / CULTIVATION</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:10px;">01</div>
             <h3 style="font-size:23px;font-weight:900;margin:0 0 12px;">土づくりから始まるさつまいも</h3>
             <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0;">収穫が終わったら、すぐに土を耕し、次のさつまいも作りの土台を準備します。化学肥料だけでなく、有機肥料を独自配合。農薬は基準値内の最低限にしています。</p>
           </div>
@@ -356,7 +381,7 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;direction:rtl;margin-bottom:56px;">
           <div data-fy-slide="right" style="direction:ltr;border-radius:32px 130px 32px 32px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 24px 50px -26px rgba(50,40,91,.4);"><img src="assets/photos/field-01-web.jpg" alt="植え付け" style="width:100%;height:100%;object-fit:cover;"></div>
           <div style="direction:ltr;">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:10px;">STEP 02 / PLANTING</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:10px;">02</div>
             <h3 style="font-size:23px;font-weight:900;margin:0 0 12px;">苗を植える</h3>
             <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0;">香取市の畑に、苗をハウス内で育て、ひと畝ずつ丁寧に苗を植えます。マルチで土の温度と湿度を整え、じっくり育てる準備をします。</p>
           </div>
@@ -364,7 +389,7 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:56px;">
           <div data-fy-slide="left" style="border-radius:32px 32px 130px 32px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 24px 50px -26px rgba(50,40,91,.4);"><img src="assets/photos/storage-web.jpg" alt="貯蔵庫で熟成" style="width:100%;height:100%;object-fit:cover;"></div>
           <div>
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:10px;">STEP 03 / CURING</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:10px;">03</div>
             <h3 style="font-size:23px;font-weight:900;margin:0 0 12px;">貯蔵庫で熟成</h3>
             <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0;">収穫したさつまいもは専用の貯蔵庫へ。温度・湿度を24時間管理しながらじっくり寝かせ、でんぷんが糖に変わり、甘みが最大限に増すまで熟成させます。</p>
           </div>
@@ -372,7 +397,7 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;direction:rtl;margin-bottom:56px;">
           <div data-fy-slide="right" style="direction:ltr;border-radius:32px 130px 32px 32px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 24px 50px -26px rgba(50,40,91,.4);"><img src="assets/photos/wash-02-web.jpg" alt="洗って選ぶ" style="width:100%;height:100%;object-fit:cover;"></div>
           <div style="direction:ltr;">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:10px;">STEP 04 / WASHING</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:10px;">04</div>
             <h3 style="font-size:23px;font-weight:900;margin:0 0 12px;">1本ずつ洗浄</h3>
             <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0;">貯蔵庫から出したさつまいもは、形を整え、1本ずつ機械洗浄していきます。真冬でも地下水を使用しているため、痛みや弱りが出にくいです。</p>
           </div>
@@ -380,7 +405,7 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:56px;">
           <div data-fy-slide="left" style="border-radius:130px 32px 32px 32px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 24px 50px -26px rgba(50,40,91,.4);"><img src="assets/photos/sorting-web.jpg" alt="選別する" style="width:100%;height:100%;object-fit:cover;"></div>
           <div>
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:10px;">STEP 05 / SORTING</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:10px;">05</div>
             <h3 style="font-size:23px;font-weight:900;margin:0 0 12px;">すべて手作業で1本ずつ選別</h3>
             <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0;">サイズ・形・傷の有無などを一本一本丁寧に選別し、箱詰めを行っています。農協規格に基づいた選別を行っているため、贈答用や焼き芋用としては品質やサイズの揃った厳しい基準のさつまいもをお届けしています。</p>
           </div>
@@ -388,7 +413,7 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;direction:rtl;">
           <div data-fy-slide="right" style="direction:ltr;border-radius:32px 130px 32px 32px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 24px 50px -26px rgba(50,40,91,.4);"><img src="assets/photos/boxes-web.jpg" alt="出荷" style="width:100%;height:100%;object-fit:cover;"></div>
           <div style="direction:ltr;">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:10px;">STEP 06 / SHIPPING</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:#32285B;margin-bottom:10px;">06</div>
             <h3 style="font-size:23px;font-weight:900;margin:0 0 12px;">出荷する</h3>
             <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0;">FARM YASHIROのロゴが入った箱に詰めて出荷。ご家庭向けの注文から焼き芋店様向けの卸ロットまで対応します。</p>
           </div>
@@ -396,7 +421,6 @@
       </div>
 
       <div class="sec" style="background:transparent;">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#32285B;display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:34px;height:3px;background:#32285B;border-radius:3px;"></span>AWARDS</div>
         <h2 style="font-size:40px;font-weight:900;line-height:1.35;margin:0 0 16px;">プロの審査員からも<span>高く評価</span></h2>
         <p style="font-size:15px;color:#7C8A75;line-height:1.9;font-weight:500;max-width:600px;margin:0;">産地や品種、生産者の情報を伏せたブラインド審査で、その味わいが評価されました。</p>
         <div style="background:#32285B;border-radius:24px;padding:30px 34px;display:flex;align-items:center;gap:30px;overflow:hidden;position:relative;box-shadow:0 20px 44px -30px rgba(50,40,91,.55);margin-top:44px;">
@@ -412,21 +436,18 @@
           <div style="background:#fff;border:2px solid #F0C808;border-radius:22px;padding:24px 26px;display:flex;align-items:center;gap:20px;box-shadow:0 16px 34px -24px rgba(50,40,91,.35);">
             <img src="assets/awards/gold-medal-trans.png" alt="最高金賞" style="width:66px;height:auto;flex-shrink:0;filter:drop-shadow(0 8px 16px rgba(0,0,0,.2));">
             <div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;color:#B8860B;margin-bottom:6px;">GOLD</div>
               <p style="font-size:14px;font-weight:900;line-height:1.6;margin:0;">第2回焼き芋選手権<br>最高金賞（シルクスイート）</p>
             </div>
           </div>
           <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:24px 26px;display:flex;align-items:center;gap:20px;box-shadow:0 16px 34px -24px rgba(50,40,91,.35);">
-            <div style="width:66px;height:66px;border-radius:50%;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#EEF0F5;color:#6A7086;font-family:'Space Grotesk',sans-serif;"><span style="font-size:10px;font-weight:700;letter-spacing:.1em;">SILVER</span><span style="font-size:20px;font-weight:700;line-height:1;">銀賞</span></div>
+            <div style="width:66px;height:66px;border-radius:50%;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#EEF0F5;color:#6A7086;font-family:'Space Grotesk',sans-serif;"><span style="font-size:20px;font-weight:700;line-height:1;">銀賞</span></div>
             <div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;color:#8A8FA8;margin-bottom:6px;">VEGETABLE SOMMELIER</div>
               <p style="font-size:14px;font-weight:900;line-height:1.6;margin:0;">野菜ソムリエサミット<br>銀賞（べにはるか）</p>
             </div>
           </div>
           <div style="background:#fff;border:1px solid #E7E4F0;border-radius:22px;padding:24px 26px;display:flex;align-items:center;gap:20px;box-shadow:0 16px 34px -24px rgba(50,40,91,.35);">
-            <div style="width:66px;height:66px;border-radius:50%;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#F3E3D3;color:#A96A3E;font-family:'Space Grotesk',sans-serif;"><span style="font-size:10px;font-weight:700;letter-spacing:.1em;">BRONZE</span><span style="font-size:20px;font-weight:700;line-height:1;">銅賞</span></div>
+            <div style="width:66px;height:66px;border-radius:50%;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#F3E3D3;color:#A96A3E;font-family:'Space Grotesk',sans-serif;"><span style="font-size:20px;font-weight:700;line-height:1;">銅賞</span></div>
             <div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;color:#A96A3E;margin-bottom:6px;white-space:nowrap;">YAKIIMO CHAMP.</div>
               <p style="font-size:14px;font-weight:900;line-height:1.6;margin:0;">第2回焼き芋選手権<br>銅賞（べにはるか）</p>
             </div>
           </div>
@@ -434,7 +455,6 @@
       </div>
 
       <div class="sec" style="background:transparent;">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#32285B;display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:34px;height:3px;background:#32285B;border-radius:3px;"></span>CUSTOMER VOICES</div>
         <h2 style="font-size:40px;font-weight:900;line-height:1.35;margin:0 0 16px;">お客様から<span>届いた高評価の声</span></h2>
         <div data-fy-vslider="" style="position:relative;margin-top:44px;">
           <div style="overflow:hidden;">
@@ -592,7 +612,6 @@
         <img src="assets/photos/strip-04-yakiimo.jpg" alt="焼き上がったさつまいも" loading="lazy">
       </div>
       <div class="sec">
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.25em;color:#32285B;display:flex;align-items:center;gap:12px;margin-bottom:14px;"><span style="width:34px;height:3px;background:#32285B;border-radius:3px;"></span>ORDER</div>
         <h2 style="font-size:40px;font-weight:900;line-height:1.35;margin:0 0 16px;">ご家庭でも、お店でも。<span>お届け</span>します</h2>
         <p style="font-size:15px;color:#7C8A75;line-height:1.9;font-weight:500;max-width:600px;margin:0;">ご自宅用・贈答用はオンラインストアから。焼き芋専門店様向けの卸も承っています。</p>
         <div data-keep2 style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px;">
@@ -618,7 +637,6 @@
       <div class="sec-flat">
         <a href="/processing/" data-proc-banner="" style="display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;background:#F9F9F9;border:1px solid #E7E4F0;border-radius:26px;padding:30px 34px;text-decoration:none;">
           <div style="flex:1;min-width:260px;">
-            <span style="display:inline-block;background:#F7E034;color:#33402F;font-weight:900;font-size:11px;padding:5px 15px;border-radius:999px;margin-bottom:12px;letter-spacing:.1em;">FOR PROCESSING</span>
             <p style="font-size:21px;font-weight:900;line-height:1.6;margin:0 0 8px;color:#33402F;">お菓子・パンの仕込みに。<br>加工向けのB品・訳あり品もお分けしています</p>
             <p style="font-size:14px;color:#7C8A75;line-height:1.9;font-weight:500;margin:0;">A品に比べて訳あり品は最大で58%お得。農家が直接卸すから、仕入れのコストを抑えられます。</p>
           </div>
@@ -639,7 +657,6 @@
       <div class="sec-sm" style="position:relative;background:#fff;color:#32285B;overflow:hidden;border-top:1px solid #ECE9F3;">
         <img src="assets/oimo-purple.png" alt="" style="position:absolute;bottom:-60px;right:-40px;width:360px;max-width:none;opacity:.06;pointer-events:none;transform:rotate(-8deg);">
         <div style="position:relative;z-index:1;max-width:820px;margin:0 auto;text-align:center;">
-          <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;letter-spacing:.24em;color:#32285B;margin-bottom:16px;">FOLLOW US ON SNS</div>
           <p style="font-size:24px;font-weight:900;line-height:1.6;margin:0 0 32px;">最新情報や作業の様子、さつまいも知識まで<br>SNSで発信中！フォローお待ちしています。</p>
           <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
             <a href="https://www.instagram.com/farm.yashiro/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;background:linear-gradient(45deg,#F58529,#DD2A7B 50%,#8134AF 78%,#515BD4);color:#fff;padding:18px 40px;border-radius:999px;font-size:16px;font-weight:700;text-decoration:none;box-shadow:0 8px 20px -8px rgba(221,42,123,.6);"><span style="font-family:'Space Grotesk',sans-serif;letter-spacing:.02em;">Instagram</span><span style="font-size:18px;">→</span></a>
