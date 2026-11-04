@@ -118,6 +118,14 @@
     [style*="font-size:13px"],[style*="font-size: 13px"]{font-size:14.5px!important;}
   }
 
+  /* 授賞式の写真（2026-11-04） */
+  [data-af-award-photo]{margin:0 0 20px;border-radius:24px;overflow:hidden;background:#32285B;box-shadow:0 24px 50px -30px rgba(50,40,91,.45);}
+  [data-af-award-photo] img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:50% 10%;}
+  @media (max-width:768px){
+    [data-af-award-photo]{border-radius:16px;margin-bottom:16px;}
+    [data-af-award-photo] img{aspect-ratio:3/2;}
+  }
+
   /* 文節で折り返す（2026-10-29） */
   body{word-break:keep-all;overflow-wrap:break-word;}
 </style>
@@ -171,6 +179,7 @@
 
       <div style="position:relative;z-index:1;padding:72px 56px 8px;">
         <h2 style="font-size:38px;font-weight:900;line-height:1.35;margin:0 0 36px;">数々の<wbr>品評会で、<span style="background:#F7E034;padding:2px 12px;border-radius:40px;">高く評価</span>されました。</h2>
+        <figure data-af-award-photo><img src="../assets/photos/award-ceremony-web.jpg" alt="さつまいも博 ファーマーズ・オブ・ザ・イヤー2025-2026 授賞式" width="2000" height="1333" decoding="async"></figure>
         <div style="background:#32285B;border-radius:24px;padding:30px 34px;display:flex;align-items:center;gap:30px;overflow:hidden;position:relative;box-shadow:0 20px 44px -30px rgba(50,40,91,.55);">
           <div style="position:absolute;top:-90px;right:-60px;width:200px;height:200px;background:rgba(247,224,52,.22);border-radius:60% 40% 40% 60%/55% 45% 55% 45%;"></div>
           <img src="../assets/awards/farmers-of-year-trans.png" alt="FARMERS OF THE YEAR" style="width:100px;height:auto;flex-shrink:0;position:relative;z-index:1;filter:drop-shadow(0 10px 22px rgba(0,0,0,.35));">
