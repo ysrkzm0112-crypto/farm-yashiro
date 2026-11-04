@@ -126,6 +126,11 @@
     [data-af-award-photo] img{aspect-ratio:3/2;}
   }
 
+  /* 受賞カード3枚：タブレット幅では3列に収まらず右にはみ出すため1列に（2026-11-04） */
+  @media (min-width:769px) and (max-width:1023px){
+    [data-af-awards]{grid-template-columns:1fr!important;}
+  }
+
   /* 文節で折り返す（2026-10-29） */
   body{word-break:keep-all;overflow-wrap:break-word;}
 </style>
@@ -188,7 +193,7 @@
             <p style="font-size:20px;font-weight:900;line-height:1.5;margin:0;">さつまいも<wbr>博 さつまいも<wbr>サミット<br>ファーマーズ・オブ・ザ・イヤー 受賞</p>
           </div>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px;">
+        <div data-af-awards style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px;">
           <div style="background:#fff;border:2px solid #F0C808;border-radius:22px;padding:24px 26px;display:flex;align-items:center;gap:20px;box-shadow:0 16px 34px -24px rgba(50,40,91,.35);">
             <img src="../assets/awards/gold-medal-trans.png" alt="最高金賞" style="width:66px;height:auto;flex-shrink:0;filter:drop-shadow(0 8px 16px rgba(0,0,0,.2));">
             <div>
